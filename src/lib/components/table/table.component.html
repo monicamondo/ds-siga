@@ -1,0 +1,45 @@
+<div class="sg-table-wrapper">
+  <table
+    class="table"
+    [class.table-striped]="striped"
+    [class.table-hover]="hoverable"
+    role="grid">
+    <thead>
+      <tr>
+        <th
+          *ngFor="let col of columns"
+          scope="col"
+          class="table-header"
+          [class]="'text-' + (col.align || 'start')">
+          {{ col.label }}
+        </th>
+        <th *ngIf="rowActionsTpl" scope="col" class="table-header text-end">Ações</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngIf="rows.length === 0">
+        <td [attr.colspan]="columns.length + (rowActionsTpl ? 1 : 0)" class="empty-list">
+          {{ emptyMessage }}
+        </td>
+      </tr>
+      
+      <tr *ngFor="let row of rows" class="table-body">
+        <td *ngFor="let col of columns" [class]="'text-' + (col.align || 'start')">
+          
+          <ng-container *ngIf="!col.type || col.type === 'text'">
+            {{ row[col.key] }}
+          </ng-container>
+
+          <ng-container *ngIf="col.type === 'badge'">
+            <siga-badge [label]="row[col.key]" [variant]="row[col.key + '_variant'] || col.badgeVariant || 'blue'" size="sm"></siga-badge>
+          </ng-container>
+
+        </td>
+        <td *ngIf="rowActionsTpl" class="text-end">
+          <ng-container *ngTemplateOutlet="rowActionsTpl; context: { $implicit: row }"></ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,145 @@
+.siga-header {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(to bottom, #1b0088 0%, #150067 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  font-family: var(--siga-font-family, sans-serif);
+  box-sizing: border-box;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.header-left {
+  gap: 32px;
+}
+
+.header-right {
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.brand-logo {
+  height: 32px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  color: #ffffff;
+  cursor: default;
+}
+
+.header-item.selectable {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.display-md {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.display-lg {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.caret-icon {
+  font-size: 10px;
+  margin-left: 6px;
+  opacity: 0.9;
+}
+
+.action-icon {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.dual-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.top-line {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.top-line.display-md {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.bottom-line {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.user-dropdown {
+  gap: 4px;
+}
+
+.user-icon {
+  margin-right: 6px;
+}
+
+.user-details {
+  align-items: flex-start;
+  margin-right: 4px;
+}
+
+/* Responsiveness overrides based on Bootstrap 12 col mindset */
+@media (max-width: 991px) {
+  .siga-header {
+    padding: 0 16px;
+  }
+  .header-left {
+    gap: 16px;
+  }
+  .display-lg {
+    font-size: 18px;
+  }
+  .display-md {
+    font-size: 15px;
+  }
+  /* Hide non-critical items on very small blocks */
+  .dual-line {
+    display: none;
+  }
+}

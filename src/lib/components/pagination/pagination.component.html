@@ -1,0 +1,41 @@
+<div class="sg-pagination-container" role="navigation" aria-label="Paginação">
+  <nav aria-label="Páginas">
+    <ul class="sg-pagination">
+      <li class="sg-page-item" [class.disabled]="currentPage === 1">
+        <button type="button" class="sg-page-link" [disabled]="currentPage === 1"
+          (click)="goTo(currentPage - 1)" aria-label="Página anterior">Anterior</button>
+      </li>
+
+      <li *ngIf="pages[0] > 1" class="sg-page-item">
+        <button type="button" class="sg-page-link" (click)="goTo(1)">1</button>
+      </li>
+      <li *ngIf="showFirstEllipsis" class="sg-page-item disabled" aria-hidden="true">
+        <span class="sg-page-link">…</span>
+      </li>
+
+      <li *ngFor="let page of pages" class="sg-page-item" [class.active]="page === currentPage">
+        <button type="button" class="sg-page-link" (click)="goTo(page)"
+          [attr.aria-current]="page === currentPage ? 'page' : null">{{ page }}</button>
+      </li>
+
+      <li *ngIf="showLastEllipsis" class="sg-page-item disabled" aria-hidden="true">
+        <span class="sg-page-link">…</span>
+      </li>
+      <li *ngIf="pages[pages.length-1] < totalPages" class="sg-page-item">
+        <button type="button" class="sg-page-link" (click)="goTo(totalPages)">{{ totalPages }}</button>
+      </li>
+
+      <li class="sg-page-item" [class.disabled]="currentPage === totalPages">
+        <button type="button" class="sg-page-link" [disabled]="currentPage === totalPages"
+          (click)="goTo(currentPage + 1)" aria-label="Próxima página">Próximo</button>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sg-items-per-page">
+    <span class="sg-total-label">{{ totalItems }} itens</span>
+    <select class="sg-page-size-select" [value]="pageSize" (change)="onPageSizeChange($event)">
+      <option *ngFor="let size of pageSizeOptions" [value]="size">{{ size }}</option>
+    </select>
+  </div>
+</div>

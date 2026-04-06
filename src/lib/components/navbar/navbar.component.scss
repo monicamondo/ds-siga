@@ -1,0 +1,85 @@
+.siga-navbar {
+  width: 100%;
+  /* Utiliza a mesma técnica de gradiente para combinar as duas barras LATAM (com divisória suave) */
+  background: linear-gradient(to bottom, #ef2a5e 0%, #ef2a5e 50%, #ed1650 50%, #ed1650 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--siga-font-family, sans-serif);
+  height: 52px; /* Compatível com a altura de icon + texto */
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 100%;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  height: 100%;
+}
+
+.nav-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    height: 100%;
+    color: var(--siga-text-white, #ffffff);
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    i {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    span {
+      font-size: var(--siga-font-size-xs, 10px);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+
+  /* Estado ativo tem cor bordô escudo */
+  &.active {
+    background: linear-gradient(to bottom, #a50d36 0%, #a50d36 50%, #960c31 51%, #960c31 100%);
+  }
+
+  /* Efeio de hover: preenchimento branco com texto e ícone da cor do fundo do menu (LATAM) */
+  &:hover:not(.active) {
+    background: #ffffff;
+    
+    a {
+      color: #ed1650;
+    }
+  }
+}
+
+.nav-left .nav-item:first-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-right .nav-item {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Reduz ícone de configurações ao lado direito, se necessário acompanhando o ref legado */
+.right-item a i {
+  font-size: 16px;
+  margin-bottom: 6px;
+}

@@ -1,0 +1,93 @@
+// ============================================================
+// SgModal — padrão delete-modal / modal genérico do legado
+// Tokens: --siga-*
+// ============================================================
+
+.sg-modal {
+  background: var(--siga-surface);
+  border-radius: var(--siga-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--siga-shadow-xl);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--siga-padding-md);
+  border-bottom: var(--siga-border-width-sm) solid var(--siga-gray-200);
+
+  .modal-title {
+    font-size: var(--siga-font-size-base);
+    font-weight: var(--siga-font-weight-bold);
+    color: var(--siga-text-primary);
+    margin: 0;
+    font-family: var(--siga-font-family);
+  }
+}
+
+.modal-body {
+  padding: var(--siga-padding-md);
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-text-primary);
+  font-family: var(--siga-font-family);
+  line-height: 1.6;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--siga-space-2);
+  padding: var(--siga-space-3) var(--siga-padding-md);
+  border-top: var(--siga-border-width-sm) solid var(--siga-gray-200);
+}
+
+// Banner informativo
+.modal-banner {
+  padding: var(--siga-space-4) var(--siga-padding-md) 0;
+
+  .details-info {
+    display: flex;
+    padding: var(--siga-space-3) var(--siga-space-4);
+    align-items: flex-start;
+    gap: var(--siga-space-2);
+    border-radius: var(--siga-radius-md);
+    border: 1px solid #91caff;
+    background: #e6f4ff;
+
+    i {
+      color: #1677ff;
+      margin-top: 2px;
+      font-size: var(--siga-font-size-md);
+      flex-shrink: 0;
+    }
+
+    .text-banner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--siga-space-1);
+      color: var(--siga-text-primary);
+      font-family: var(--siga-font-family);
+      font-size: var(--siga-font-size-sm);
+
+      .title-banner {
+        font-size: var(--siga-font-size-sm);
+        font-weight: var(--siga-font-weight-bold);
+      }
+    }
+  }
+}
+
+// Subtítulo de seção interna
+.sg-modal-section-title {
+  color: var(--siga-color-primary);
+  font-size: var(--siga-font-size-sm);
+  font-weight: var(--siga-font-weight-bold);
+  text-transform: uppercase;
+  padding: var(--siga-padding-sm) 0;
+  font-family: var(--siga-font-family);
+
+  &.with-border {
+    border-top: var(--siga-border-width-md) solid var(--siga-gray-300);
+  }
+}

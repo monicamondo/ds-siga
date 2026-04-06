@@ -1,0 +1,18 @@
+<div class="sg-filters filters" role="search" aria-label="Filtros">
+  <ng-content></ng-content>
+  <div class="actions" role="group" aria-label="Ações de filtro">
+    <siga-button
+      label="Limpar"
+      variant="secondary"
+      size="sm"
+      (click)="cleared.emit()">
+    </siga-button>
+    <siga-button
+      label="Filtrar"
+      variant="primary"
+      size="sm"
+      iconClass="fa-regular fa-magnifying-glass"
+      (click)="searched.emit()">
+    </siga-button>
+  </div>
+</div>

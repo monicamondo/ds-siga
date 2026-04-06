@@ -27,8 +27,16 @@
     // TEXT
     // ----------------------------------------------------------
     --siga-text-primary: #0A0A0A;
+    --siga-text-secondary: #424242;
+    --siga-text-tertiary: #757575;
+    --siga-text-disabled: #C2C2C2;
     --siga-text-white: #FFFFFF;
     --siga-text-black: #000000;
+
+    // ----------------------------------------------------------
+    // COLOR ALIASES (compatibilidade com componentes)
+    // ----------------------------------------------------------
+    --siga-color-primary: var(--siga-blue-700);
 
     // ----------------------------------------------------------
     // GRAY SCALE
@@ -155,6 +163,7 @@
     --siga-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
     --siga-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.12);
     --siga-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.16);
+    --siga-shadow-focus: 0 0 0 3px rgba(18, 55, 156, 0.25);
 
     // ----------------------------------------------------------
     // SUPERFÍCIES (atalhos para uso em componentes)
@@ -162,4 +171,42 @@
     --siga-bg: var(--siga-gray-100); // fundo de página
     --siga-surface: #FFFFFF; // cards, modais, tabelas
     --siga-divider: var(--siga-gray-300); // linhas separadoras
+
+    // ----------------------------------------------------------
+    // BORDAS
+    // ----------------------------------------------------------
+    --siga-border-width-sm: 1px;
+    --siga-border-width-md: 2px;
+
+    // ----------------------------------------------------------
+    // DIMENSÕES DE BOTÃO
+    // ----------------------------------------------------------
+    --siga-btn-height-sm: 30px;
+    --siga-btn-height-md: 38px;
+    --siga-btn-height-lg: 46px;
+
+    // ----------------------------------------------------------
+    // PADDING ESCALA (botões, inputs)
+    // ----------------------------------------------------------
+    --siga-padding-xs: var(--siga-space-1);   // 4px
+    --siga-padding-sm: var(--siga-space-2);   // 8px
+    --siga-padding-md: var(--siga-space-4);   // 16px
+    --siga-padding-lg: var(--siga-space-6);   // 24px
+
+    // ----------------------------------------------------------
+    // TIPOGRAFIA — ALIASES (compat. com legado)
+    // ----------------------------------------------------------
+    --siga-body-regular-font-size: var(--siga-font-size-sm); // 12px — padrão do sistema
+    --siga-body-bold-font-weight: var(--siga-font-weight-bold);
+
+    // ----------------------------------------------------------
+    // TRANSIÇÕES
+    // ----------------------------------------------------------
+    --siga-transition-base: all 0.15s ease-in-out;
+
+    // ----------------------------------------------------------
+    // OPACIDADE
+    // ----------------------------------------------------------
+    --siga-opacity-disabled: 0.5;
+    --siga-opacity-muted: 0.45;
 }

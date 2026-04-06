@@ -1,0 +1,57 @@
+<header class="siga-header">
+  <div class="header-left">
+    <!-- Logo -->
+    <div class="brand">
+      <img [src]="logoUrl" alt="LATAM Airlines" class="brand-logo" />
+    </div>
+
+    <!-- Modules (CONECTA+) -->
+    <div class="header-item selectable" *ngIf="selectedModule">
+      <span class="value">{{ selectedModule.label }}</span>
+      <i class="fa-solid fa-caret-down caret-icon"></i>
+    </div>
+
+    <!-- Airport (GRU) -->
+    <div class="header-item selectable" *ngIf="selectedAirport">
+      <span class="value display-lg">{{ selectedAirport.code }}</span>
+      <i class="fa-solid fa-caret-down caret-icon"></i>
+    </div>
+
+    <!-- Date  -->
+    <div class="header-item dual-line">
+      <span class="top-line bold">{{ currentDayOfWeek }}</span>
+      <span class="bottom-line">{{ currentDate }}</span>
+    </div>
+
+    <!-- Local Time -->
+    <div class="header-item dual-line">
+      <span class="top-line display-md">{{ currentTime }}</span>
+      <span class="bottom-line">Local Time</span>
+    </div>
+
+    <!-- UTC Time -->
+    <div class="header-item dual-line">
+      <span class="top-line display-md">{{ utcTime }}</span>
+      <span class="bottom-line">UTC Time</span>
+    </div>
+  </div>
+
+  <div class="header-right">
+    <!-- Language -->
+    <div class="header-item selectable">
+      <i class="fa-solid fa-globe action-icon"></i>
+      <span class="value">{{ currentLanguage }}</span>
+      <i class="fa-solid fa-caret-down caret-icon"></i>
+    </div>
+
+    <!-- User -->
+    <div class="header-item selectable user-dropdown" *ngIf="user">
+      <i class="fa-solid fa-user action-icon user-icon"></i>
+      <div class="dual-line user-details">
+        <span class="top-line bold">{{ user.name }}</span>
+        <span class="bottom-line" *ngIf="user.provider">{{ user.provider }}</span>
+      </div>
+      <i class="fa-solid fa-caret-down caret-icon"></i>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,31 @@
+<div class="sg-modal" role="dialog" [attr.aria-label]="title">
+
+  <!-- Cabeçalho -->
+  <div class="modal-header">
+    <h4 class="modal-title">{{ title }}</h4>
+    <button type="button" class="btn-close btn-sm" aria-label="Fechar" (click)="cancelled.emit()"></button>
+  </div>
+
+  <!-- Banner informativo -->
+  <div *ngIf="showBanner" class="modal-banner">
+    <div class="details-info" role="note">
+      <i class="fa-regular fa-circle-info" aria-hidden="true"></i>
+      <div class="text-banner">
+        <span *ngIf="bannerTitle" class="title-banner">{{ bannerTitle }}</span>
+        <span *ngIf="bannerText">{{ bannerText }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Corpo -->
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Rodapé com ações -->
+  <div *ngIf="showFooter" class="modal-footer">
+    <siga-button [label]="cancelLabel" variant="secondary" size="sm" (click)="cancelled.emit()"></siga-button>
+    <siga-button [label]="confirmLabel" variant="primary" size="sm" (click)="confirmed.emit()"></siga-button>
+  </div>
+
+</div>

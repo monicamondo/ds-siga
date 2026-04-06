@@ -6,9 +6,335 @@
     "interceptors": [],
     "classes": [],
     "directives": [],
-    "components": [],
+    "components": [
+        {
+            "name": "BadgeComponent",
+            "id": "component-BadgeComponent-6309b18fdd49cea7c97c174b6279bd51e70569fdaa4859e787b96951f8164869fd1baf56671bf6c7a254ea4020b32cd2a8902faa7e50da3dcfd767cea55a7461",
+            "file": "src/lib/components/badge/badge.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-badge",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./badge.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "iconClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'md'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "BadgeSize",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'blue'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "BadgeVariant",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport type BadgeVariant = 'blue' | 'success' | 'warning' | 'danger' | 'info' | 'default';\nexport type BadgeSize = 'sm' | 'md';\n\n@Component({\n  selector: 'siga-badge',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './badge.component.html',\n  styleUrl: './badge.component.scss',\n})\nexport class BadgeComponent {\n  @Input() label: string = '';\n  @Input() variant: BadgeVariant = 'blue';\n  @Input() size: BadgeSize = 'md';\n  @Input() iconClass: string = '';\n\n  get badgeClasses(): string {\n    return `sg-badge sg-badge--${this.variant} sg-badge--size-${this.size}`;\n  }\n}\n",
+            "styleUrl": "./badge.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "badgeClasses": {
+                    "name": "badgeClasses",
+                    "getSignature": {
+                        "name": "badgeClasses",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 20
+                    }
+                }
+            },
+            "templateData": "<span [class]=\"badgeClasses\">\n  <i *ngIf=\"iconClass\" [class]=\"iconClass\" aria-hidden=\"true\"></i>\n  {{ label }}\n</span>\n"
+        },
+        {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-106fb4d864fdc87f92fc58e8f72471a256ebdd756ea49e4896ef2b538ecc881c787959e071adcd9fd35ae5697d69af2510aeab4cf5cee6e36dfc7a862acd3152",
+            "file": "src/lib/components/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-button",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "iconClass",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "size",
+                    "defaultValue": "'sm'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "SgButtonSize",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'button'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "SgButtonType",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'primary'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "SgButtonVariant",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport type SgButtonVariant = 'primary' | 'outline' | 'secondary' | 'icon' | 'icon-outline';\nexport type SgButtonSize = 'sm' | 'md' | 'lg';\nexport type SgButtonType = 'button' | 'submit' | 'reset';\n\n@Component({\n  selector: 'siga-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() label: string = '';\n  @Input() variant: SgButtonVariant = 'primary';\n  @Input() size: SgButtonSize = 'sm';\n  @Input() disabled: boolean = false;\n  @Input() type: SgButtonType = 'button';\n  @Input() iconClass: string = '';\n\n  get buttonClasses(): string {\n    return `btn btn-sg btn-${this.variant} btn-size-${this.size}`;\n  }\n}\n",
+            "styleUrl": "./button.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "buttonClasses": {
+                    "name": "buttonClasses",
+                    "getSignature": {
+                        "name": "buttonClasses",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 23
+                    }
+                }
+            },
+            "templateData": "<button\n  [type]=\"type\"\n  [disabled]=\"disabled\"\n  [class]=\"buttonClasses\"\n  [attr.aria-disabled]=\"disabled || null\">\n  <i *ngIf=\"iconClass\" [class]=\"iconClass\" aria-hidden=\"true\"></i>\n  <span *ngIf=\"label\">{{ label }}</span>\n</button>\n"
+        }
+    ],
     "modules": [],
-    "miscellaneous": [],
+    "miscellaneous": {
+        "variables": [],
+        "functions": [],
+        "typealiases": [
+            {
+                "name": "BadgeSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"sm\" | \"md\"",
+                "file": "src/lib/components/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "BadgeVariant",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"blue\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"default\"",
+                "file": "src/lib/components/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "SgButtonSize",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"sm\" | \"md\" | \"lg\"",
+                "file": "src/lib/components/button/button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "SgButtonType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"button\" | \"submit\" | \"reset\"",
+                "file": "src/lib/components/button/button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "SgButtonVariant",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"primary\" | \"outline\" | \"secondary\" | \"icon\" | \"icon-outline\"",
+                "file": "src/lib/components/button/button.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            }
+        ],
+        "enumerations": [],
+        "groupedVariables": {},
+        "groupedFunctions": {},
+        "groupedEnumerations": {},
+        "groupedTypeAliases": {
+            "src/lib/components/badge/badge.component.ts": [
+                {
+                    "name": "BadgeSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"sm\" | \"md\"",
+                    "file": "src/lib/components/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "BadgeVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"blue\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"default\"",
+                    "file": "src/lib/components/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                }
+            ],
+            "src/lib/components/button/button.component.ts": [
+                {
+                    "name": "SgButtonSize",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"sm\" | \"md\" | \"lg\"",
+                    "file": "src/lib/components/button/button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "SgButtonType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"button\" | \"submit\" | \"reset\"",
+                    "file": "src/lib/components/button/button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                },
+                {
+                    "name": "SgButtonVariant",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"primary\" | \"outline\" | \"secondary\" | \"icon\" | \"icon-outline\"",
+                    "file": "src/lib/components/button/button.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                }
+            ]
+        }
+    },
     "routes": {
         "name": "<root>",
         "kind": "module",
@@ -17,6 +343,75 @@
     "coverage": {
         "count": 0,
         "status": "low",
-        "files": []
+        "files": [
+            {
+                "filePath": "src/lib/components/badge/badge.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "BadgeComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/badge/badge.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "BadgeSize",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/badge/badge.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "BadgeVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/button/button.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "SgButtonSize",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/button/button.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "SgButtonType",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/button/button.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "SgButtonVariant",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            }
+        ]
     }
 }

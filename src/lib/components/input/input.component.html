@@ -1,0 +1,19 @@
+<div class="form-group sg-input-group">
+  <label *ngIf="label" [for]="id" class="sg-input-label">
+    {{ label }}<span *ngIf="required" class="sg-input-required" aria-hidden="true">*</span>
+  </label>
+  <input
+    [id]="id"
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [attr.required]="required || null"
+    [attr.aria-invalid]="errorMessage ? 'true' : null"
+    [(ngModel)]="value"
+    class="form-control form-control-sm"
+    [class.is-invalid]="errorMessage"
+  />
+  <div *ngIf="errorMessage" [id]="id + '-error'" class="sg-input-error" role="alert">
+    {{ errorMessage }}
+  </div>
+</div>

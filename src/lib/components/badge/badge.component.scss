@@ -1,0 +1,82 @@
+// ============================================================
+// SigaBadge — Design System SIGA
+// Tokens: src/lib/tokens/_variables.scss
+// Referência legado: .badge-blue, .badge-success etc (styles-v2.scss)
+// ============================================================
+
+.sg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--siga-space-1);
+  min-width: 10px;
+  font-family: var(--siga-font-family);
+  font-weight: var(--siga-body-bold-font-weight);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: var(--siga-radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: default;
+  border: 1px solid transparent;
+}
+
+// -------------------------------------------------------
+// TAMANHOS
+// -------------------------------------------------------
+.sg-badge--size-sm {
+  font-size: var(--siga-font-size-xs);
+  padding: 2px var(--siga-space-2);
+}
+
+.sg-badge--size-md {
+  font-size: var(--siga-font-size-sm);
+  padding: 3px var(--siga-space-2);
+}
+
+// -------------------------------------------------------
+// VARIANTES DE COR
+// -------------------------------------------------------
+
+// Padrão do sistema — azul / identificação de módulos
+.sg-badge--blue {
+  background: var(--siga-blue-100);
+  color: var(--siga-color-primary);
+  border-color: var(--siga-blue-200);
+}
+
+// Info — cyan (destaque / brand secundário)
+.sg-badge--info {
+  background: var(--siga-cyan-100);
+  color: var(--siga-cyan-700);
+  border-color: var(--siga-cyan-200);
+}
+
+// Sucesso — verde
+.sg-badge--success {
+  background: var(--siga-green-100);
+  color: var(--siga-green-500);
+  border-color: var(--siga-green-200);
+}
+
+// Aviso — amarelo
+.sg-badge--warning {
+  background: var(--siga-yellow-100);
+  color: var(--siga-yellow-700);
+  border-color: var(--siga-yellow-200);
+}
+
+// Perigo / erro — vermelho
+.sg-badge--danger {
+  background: var(--siga-red-100);
+  color: var(--siga-red-500);
+  border-color: var(--siga-red-200);
+}
+
+// Neutro / inativo — cinza
+.sg-badge--default {
+  background: var(--siga-gray-200);
+  color: var(--siga-gray-700);
+  border-color: var(--siga-gray-300);
+}

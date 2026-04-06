@@ -1,0 +1,13 @@
+<div class="sg-card card">
+  <div class="card-body">
+    <div *ngIf="title" class="sg-card-header">
+      <span class="sg-card-title">{{ title }}</span>
+      <span *ngIf="subtitle" class="sg-card-subtitle">{{ subtitle }}</span>
+      <hr class="sg-card-divider" />
+    </div>
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="showFooter" class="card-footer">
+    <ng-content select="[sgCardFooter]"></ng-content>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<nav class="siga-navbar">
+  <ul class="nav-left">
+    <li 
+      class="nav-item" 
+      *ngFor="let item of items" 
+      [class.active]="item.active" 
+      (click)="onItemClick(item)">
+      <a class="nav-link">
+        <i [class]="item.icon"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+  
+  <ul class="nav-right" *ngIf="rightItem">
+    <li 
+      class="nav-item right-item" 
+      [class.active]="rightItem.active" 
+      (click)="onItemClick(rightItem)">
+      <a class="nav-link">
+         <i [class]="rightItem.icon"></i>
+         <span>{{ rightItem.label }}</span>
+      </a>
+    </li>
+  </ul>
+</nav>

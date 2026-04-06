@@ -1,0 +1,46 @@
+.sg-card {
+  border: var(--siga-border-width-sm) solid var(--siga-border);
+  border-radius: var(--siga-radius-md);
+  background: var(--siga-surface);
+  box-shadow: var(--siga-shadow-sm);
+  overflow: hidden;
+}
+
+.card-body {
+  padding: var(--siga-space-3) var(--siga-space-4);
+}
+
+.sg-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--siga-space-1);
+}
+
+.sg-card-title {
+  font-size: var(--siga-font-size-md);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-primary);
+  text-transform: uppercase;
+  font-family: var(--siga-font-family);
+}
+
+.sg-card-subtitle {
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-gray-600);
+  font-family: var(--siga-font-family);
+}
+
+.sg-card-divider {
+  margin: var(--siga-space-2) 0;
+  border: 0;
+  border-top: var(--siga-border-width-sm) solid var(--siga-gray-200);
+}
+
+.card-footer {
+  background: var(--siga-gray-100);
+  border-top: var(--siga-border-width-sm) solid var(--siga-gray-200);
+  padding: var(--siga-space-2) var(--siga-space-4);
+  display: flex;
+  gap: var(--siga-space-2);
+  align-items: center;
+}

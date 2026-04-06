@@ -1,2 +1,7 @@
-@import 'bootstrap/dist/css/bootstrap.min.css';
-@import '@fortawesome/fontawesome-free/css/all.min.css';
+// ============================================================
+// SIGA Design System — Global Styles
+// Bootstrap e FontAwesome são carregados via angular.json styles[]
+// Este arquivo contém apenas os tokens CSS custom properties do DS
+// ============================================================
+
+@import './lib/tokens/variables';

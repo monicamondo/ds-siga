@@ -1,0 +1,8 @@
+<button
+  [type]="type"
+  [disabled]="disabled"
+  [class]="buttonClasses"
+  [attr.aria-disabled]="disabled || null">
+  <i *ngIf="iconClass" [class]="iconClass" aria-hidden="true"></i>
+  <span *ngIf="label">{{ label }}</span>
+</button>

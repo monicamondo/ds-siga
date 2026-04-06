@@ -1,0 +1,230 @@
+// ============================================================
+// SigaButton — Design System SIGA
+// Tokens: src/lib/tokens/_variables.scss
+// Sem valores hardcoded — apenas var(--siga-*)
+// ============================================================
+
+// -------------------------------------------------------
+// BASE
+// -------------------------------------------------------
+.btn-sg {
+  cursor: pointer;
+  line-height: 1.5;
+  font-family: var(--siga-font-family);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--siga-space-1);
+  white-space: nowrap;
+  transition: var(--siga-transition-base);
+  text-decoration: none;
+  vertical-align: middle;
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// -------------------------------------------------------
+// TAMANHOS
+// -------------------------------------------------------
+.btn-size-sm {
+  font-size: var(--siga-font-size-sm);
+  padding: var(--siga-padding-xs) var(--siga-padding-sm);
+  height: var(--siga-btn-height-sm);
+}
+
+.btn-size-md {
+  font-size: var(--siga-body-regular-font-size);
+  padding: var(--siga-padding-sm) var(--siga-padding-md);
+  height: var(--siga-btn-height-md);
+}
+
+.btn-size-lg {
+  font-size: var(--siga-font-size-md);
+  padding: var(--siga-padding-sm) var(--siga-padding-lg);
+  height: var(--siga-btn-height-lg);
+}
+
+// -------------------------------------------------------
+// VARIANTE: primary
+// -------------------------------------------------------
+.btn-primary {
+  border-radius: var(--siga-radius-sm);
+  border: var(--siga-border-width-sm) solid var(--siga-color-primary);
+  background-color: var(--siga-color-primary);
+  font-weight: var(--siga-body-bold-font-weight);
+  color: var(--siga-text-white);
+  min-width: 90px;
+
+  &:hover:not(:disabled) {
+    background-color: var(--siga-blue-600);
+    border-color: var(--siga-blue-600);
+    color: var(--siga-text-white);
+  }
+
+  &:active:not(:disabled),
+  &.active:not(:disabled) {
+    background-color: var(--siga-blue-800);
+    border-color: var(--siga-blue-800);
+    color: var(--siga-text-white);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--siga-shadow-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    background-color: var(--siga-gray-400);
+    border-color: var(--siga-gray-400);
+    color: var(--siga-text-white);
+    opacity: var(--siga-opacity-disabled);
+  }
+}
+
+// -------------------------------------------------------
+// VARIANTE: outline
+// -------------------------------------------------------
+.btn-outline {
+  border-radius: var(--siga-radius-sm);
+  border: var(--siga-border-width-sm) solid var(--siga-color-primary);
+  background-color: transparent;
+  font-weight: var(--siga-body-bold-font-weight);
+  color: var(--siga-color-primary);
+  min-width: 90px;
+
+  &:hover:not(:disabled) {
+    background-color: var(--siga-color-primary);
+    border-color: var(--siga-color-primary);
+    color: var(--siga-text-white);
+  }
+
+  &:active:not(:disabled),
+  &.active:not(:disabled) {
+    background-color: var(--siga-blue-800);
+    border-color: var(--siga-blue-800);
+    color: var(--siga-text-white);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--siga-shadow-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: var(--siga-opacity-muted);
+  }
+}
+
+// -------------------------------------------------------
+// VARIANTE: secondary
+// -------------------------------------------------------
+.btn-secondary {
+  border-radius: var(--siga-radius-sm);
+  border: var(--siga-border-width-sm) solid var(--siga-gray-500);
+  background-color: transparent;
+  font-weight: var(--siga-body-bold-font-weight);
+  color: var(--siga-gray-600);
+  min-width: 90px;
+
+  &:hover:not(:disabled) {
+    background-color: var(--siga-gray-500);
+    border-color: var(--siga-gray-500);
+    color: var(--siga-text-white);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--siga-gray-700);
+    border-color: var(--siga-gray-700);
+    color: var(--siga-text-white);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--siga-shadow-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: var(--siga-opacity-muted);
+  }
+}
+
+// -------------------------------------------------------
+// VARIANTE: icon (só ícone, sem borda)
+// -------------------------------------------------------
+.btn-icon {
+  width: 30px;
+  height: 30px;
+  padding: var(--siga-padding-xs);
+  min-width: unset;
+  justify-content: center;
+  color: var(--siga-color-primary);
+  background: none;
+  border: none;
+  border-radius: var(--siga-radius-sm);
+
+  &.btn-size-md {
+    width: 38px;
+    height: 38px;
+  }
+
+  &.btn-size-lg {
+    width: 46px;
+    height: 46px;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--siga-blue-100);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--siga-blue-200);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--siga-shadow-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: var(--siga-opacity-disabled);
+  }
+}
+
+// -------------------------------------------------------
+// VARIANTE: icon-outline
+// -------------------------------------------------------
+.btn-icon-outline {
+  border-radius: var(--siga-radius-sm);
+  border: var(--siga-border-width-sm) solid var(--siga-color-primary);
+  background-color: transparent;
+  font-weight: var(--siga-body-bold-font-weight);
+  color: var(--siga-color-primary);
+  min-width: unset;
+  aspect-ratio: 1;
+
+  &:hover:not(:disabled) {
+    background-color: var(--siga-color-primary);
+    color: var(--siga-text-white);
+  }
+
+  &:active:not(:disabled),
+  &.active:not(:disabled) {
+    background-color: var(--siga-blue-800);
+    border-color: var(--siga-blue-800);
+    color: var(--siga-text-white);
+  }
+
+  &:focus-visible {
+    box-shadow: var(--siga-shadow-focus);
+    outline: none;
+  }
+
+  &:disabled {
+    opacity: var(--siga-opacity-muted);
+  }
+}
