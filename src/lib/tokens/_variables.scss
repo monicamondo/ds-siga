@@ -1,0 +1,165 @@
+// ============================================================
+// SIGA DESIGN SYSTEM — TOKENS
+// src/lib/tokens/_variables.scss
+// Fonte: DS---Siga-BS (Figma) · Atualizado em 06/04/2026
+// REGRA: nenhum componente usa valor hardcoded — apenas estas variáveis
+// ============================================================
+
+:root {
+
+    // ----------------------------------------------------------
+    // BRAND
+    // ----------------------------------------------------------
+    --siga-brand-primary: #12379C;
+    --siga-brand-destaque: #56C0D8;
+
+    // ----------------------------------------------------------
+    // SEMANTIC
+    // ----------------------------------------------------------
+    --siga-info: #56C0D8;
+    --siga-success: #198754;
+    --siga-danger: #DC3545;
+    --siga-warning: #FFC107;
+    --siga-light: #F9F9F9;
+    --siga-border: #C2C2C2;
+
+    // ----------------------------------------------------------
+    // TEXT
+    // ----------------------------------------------------------
+    --siga-text-primary: #0A0A0A;
+    --siga-text-white: #FFFFFF;
+    --siga-text-black: #000000;
+
+    // ----------------------------------------------------------
+    // GRAY SCALE
+    // ----------------------------------------------------------
+    --siga-gray-100: #F9F9F9;
+    --siga-gray-200: #F0F0F0;
+    --siga-gray-300: #E0E0E0;
+    --siga-gray-400: #C2C2C2;
+    --siga-gray-500: #9E9E9E;
+    --siga-gray-600: #757575;
+    --siga-gray-700: #424242;
+    --siga-gray-800: #212121;
+    --siga-gray-900: #0A0A0A;
+
+    // ----------------------------------------------------------
+    // BLUE SCALE
+    // ----------------------------------------------------------
+    --siga-blue-100: #EEF2FC;
+    --siga-blue-200: #D8E5FC;
+    --siga-blue-300: #B4D2F9;
+    --siga-blue-400: #8CB6F2;
+    --siga-blue-500: #5E93EC;
+    --siga-blue-600: #3973E1;
+    --siga-blue-700: #12379C; // primary
+    --siga-blue-800: #0E2A7A;
+    --siga-blue-900: #08194D;
+
+    // ----------------------------------------------------------
+    // CYAN SCALE
+    // ----------------------------------------------------------
+    --siga-cyan-100: #EAF9FC;
+    --siga-cyan-200: #CFF0F7;
+    --siga-cyan-300: #B0E4F0;
+    --siga-cyan-400: #8ED6E6;
+    --siga-cyan-500: #56C0D8; // info / destaque
+    --siga-cyan-600: #45A6BB;
+    --siga-cyan-700: #348C9E;
+    --siga-cyan-800: #237381;
+    --siga-cyan-900: #125964;
+
+    // ----------------------------------------------------------
+    // GREEN SCALE
+    // ----------------------------------------------------------
+    --siga-green-100: #F8FFFA;
+    --siga-green-200: #C6E0CE;
+    --siga-green-300: #A0CBB0;
+    --siga-green-400: #57A372;
+    --siga-green-500: #188038; // success
+    --siga-green-600: #156F31;
+    --siga-green-700: #115927;
+    --siga-green-800: #0C401C;
+    --siga-green-900: #06200E;
+
+    // ----------------------------------------------------------
+    // RED SCALE
+    // ----------------------------------------------------------
+    --siga-red-100: #FFEBEB;
+    --siga-red-200: #F6BCBA;
+    --siga-red-300: #EC8E88;
+    --siga-red-400: #E25F56;
+    --siga-red-500: #D93025; // danger
+    --siga-red-600: #C32B21;
+    --siga-red-700: #A3241C;
+    --siga-red-800: #771A14;
+    --siga-red-900: #4C110D;
+
+    // ----------------------------------------------------------
+    // YELLOW SCALE
+    // ----------------------------------------------------------
+    --siga-yellow-100: #FFF3CD;
+    --siga-yellow-200: #FFE69C;
+    --siga-yellow-300: #FFDA6A;
+    --siga-yellow-400: #FFCD39;
+    --siga-yellow-500: #FFC107; // warning
+    --siga-yellow-600: #CC9A06;
+    --siga-yellow-700: #997404;
+    --siga-yellow-800: #664D03;
+    --siga-yellow-900: #332701;
+
+    // ----------------------------------------------------------
+    // TIPOGRAFIA
+    // ----------------------------------------------------------
+    --siga-font-family: Arial, Helvetica, "Lucida Sans", FreeSans, sans-serif;
+
+    --siga-font-size-xs: 10px;
+    --siga-font-size-sm: 12px;
+    --siga-font-size-md: 14px;
+    --siga-font-size-base: 16px;
+    --siga-font-size-lg: 24px;
+    --siga-font-size-xl: 32px;
+    --siga-font-size-h2: 40px;
+    --siga-font-size-h1: 48px;
+
+    --siga-font-weight-regular: 400;
+    --siga-font-weight-bold: 700;
+
+    --siga-line-height-heading: 1.2;
+    --siga-line-height-body: 1.5;
+
+    // ----------------------------------------------------------
+    // ESPAÇAMENTOS (escala 4px)
+    // ----------------------------------------------------------
+    --siga-space-1: 4px;
+    --siga-space-2: 8px;
+    --siga-space-3: 12px;
+    --siga-space-4: 16px;
+    --siga-space-6: 24px;
+    --siga-space-8: 32px;
+    --siga-space-12: 48px;
+    --siga-space-16: 64px;
+
+    // ----------------------------------------------------------
+    // CANTOS ARREDONDADOS
+    // ----------------------------------------------------------
+    --siga-radius-none: 0px;
+    --siga-radius-sm: 4px;
+    --siga-radius-md: 8px;
+    --siga-radius-lg: 12px;
+    --siga-radius-pill: 100px;
+
+    // ----------------------------------------------------------
+    // SOMBRAS
+    // ----------------------------------------------------------
+    --siga-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+    --siga-shadow-md: 0 2px 8px rgba(0, 0, 0, 0.12);
+    --siga-shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.16);
+
+    // ----------------------------------------------------------
+    // SUPERFÍCIES (atalhos para uso em componentes)
+    // ----------------------------------------------------------
+    --siga-bg: var(--siga-gray-100); // fundo de página
+    --siga-surface: #FFFFFF; // cards, modais, tabelas
+    --siga-divider: var(--siga-gray-300); // linhas separadoras
+}
