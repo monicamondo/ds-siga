@@ -1,6 +1,127 @@
 {
     "pipes": [],
-    "interfaces": [],
+    "interfaces": [
+        {
+            "name": "NavbarItem",
+            "id": "interface-NavbarItem-0e6a6e305e275f16e6f5e1810438ae6e2469b1234d6335028ad16e03d7df6278f1be8e0243839ba688982e3fa11b1a49bf10614517685f485a6e1b40108b63b2",
+            "file": "src/lib/components/navbar/navbar.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport interface NavbarItem {\n  id: string;\n  label: string;\n  icon: string;\n  active?: boolean;\n}\n\n@Component({\n  selector: 'siga-navbar',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss']\n})\nexport class NavbarComponent {\n  @Input() items: NavbarItem[] = [];\n  @Input() rightItem?: NavbarItem;\n  \n  @Output() itemClick = new EventEmitter<NavbarItem>();\n\n  onItemClick(item: NavbarItem) {\n    // Only emit if not already active to prevent redundant calls\n    if (!item.active) {\n      this.itemClick.emit(item);\n    }\n  }\n}\n",
+            "properties": [
+                {
+                    "name": "active",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "icon",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "id",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": []
+        },
+        {
+            "name": "TableColumn",
+            "id": "interface-TableColumn-d7b954e74eabf0b223deb7ccecb73792e05ef136a5e4da6d049fb7f3126d0ebb4201dd8bdf21be0edf9e15de34f1dd828a20f9be854ec2ec3543b4b36089d461",
+            "file": "src/lib/components/table/table.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input, ContentChild, TemplateRef } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\n\nexport interface TableColumn {\n  key: string;\n  label: string;\n  align?: 'start' | 'center' | 'end';\n  type?: 'text' | 'badge';\n  badgeVariant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'blue' | 'default';\n  // Se o variant for dinamico da linha, podemos passar pelo row\n}\n\n@Component({\n  selector: 'siga-table',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent],\n  templateUrl: './table.component.html',\n  styleUrl: './table.component.scss',\n})\nexport class TableComponent<T extends Record<string, any>> {\n  @Input() columns: TableColumn[] = [];\n  @Input() rows: T[] = [];\n  @Input() striped: boolean = true;\n  @Input() hoverable: boolean = true;\n  @Input() emptyMessage: string = 'Nenhum item encontrado.';\n\n  @ContentChild('rowActions', { static: false }) rowActionsTpl?: TemplateRef<any>;\n}\n",
+            "properties": [
+                {
+                    "name": "align",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"start\" | \"center\" | \"end\"",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 8
+                },
+                {
+                    "name": "badgeVariant",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"primary\" | \"secondary\" | \"success\" | \"danger\" | \"warning\" | \"info\" | \"blue\" | \"default\"",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "key",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 6
+                },
+                {
+                    "name": "label",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 7
+                },
+                {
+                    "name": "type",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"text\" | \"badge\"",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 9
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": []
+        }
+    ],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -100,10 +221,11 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-106fb4d864fdc87f92fc58e8f72471a256ebdd756ea49e4896ef2b538ecc881c787959e071adcd9fd35ae5697d69af2510aeab4cf5cee6e36dfc7a862acd3152",
+            "id": "component-ButtonComponent-96c6db1e8292eac73846c2a109e2755b9ddf9a20230cf8268ce7687c89b33bee2791eced2ae0e93aa851cee0e1158247f1fb88f0b83055036b0e0678ab8e9ad0",
             "file": "src/lib/components/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
+            "host": {},
             "inputs": [],
             "outputs": [],
             "providers": [],
@@ -121,7 +243,7 @@
                     "defaultValue": "false",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 22,
                     "type": "boolean",
                     "decorators": []
                 },
@@ -130,7 +252,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 21,
+                    "line": 24,
                     "type": "string",
                     "decorators": []
                 },
@@ -139,7 +261,7 @@
                     "defaultValue": "''",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 19,
                     "type": "string",
                     "decorators": []
                 },
@@ -148,7 +270,7 @@
                     "defaultValue": "'sm'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 18,
+                    "line": 21,
                     "type": "SgButtonSize",
                     "decorators": []
                 },
@@ -157,7 +279,7 @@
                     "defaultValue": "'button'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 23,
                     "type": "SgButtonType",
                     "decorators": []
                 },
@@ -166,8 +288,99 @@
                     "defaultValue": "'primary'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 20,
                     "type": "SgButtonVariant",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "onClick",
+                    "defaultValue": "new EventEmitter<Event>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport type SgButtonVariant = 'primary' | 'outline' | 'secondary' | 'icon' | 'icon-outline';\nexport type SgButtonSize = 'sm' | 'md' | 'lg';\nexport type SgButtonType = 'button' | 'submit' | 'reset';\n\n@Component({\n  selector: 'siga-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n  host: {\n    'style': 'display: inline-block;'\n  }\n})\nexport class ButtonComponent {\n  @Input() label: string = '';\n  @Input() variant: SgButtonVariant = 'primary';\n  @Input() size: SgButtonSize = 'sm';\n  @Input() disabled: boolean = false;\n  @Input() type: SgButtonType = 'button';\n  @Input() iconClass: string = '';\n\n  @Output() onClick = new EventEmitter<Event>();\n\n  get buttonClasses(): string {\n    return `btn btn-sg btn-${this.variant} btn-size-${this.size}`;\n  }\n}\n",
+            "styleUrl": "./button.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "accessors": {
+                "buttonClasses": {
+                    "name": "buttonClasses",
+                    "getSignature": {
+                        "name": "buttonClasses",
+                        "type": "string",
+                        "returnType": "string",
+                        "line": 28
+                    }
+                }
+            },
+            "templateData": "<button\n  [type]=\"type\"\n  [disabled]=\"disabled\"\n  [class]=\"buttonClasses\"\n  [attr.aria-disabled]=\"disabled || null\">\n  <i *ngIf=\"iconClass\" [class]=\"iconClass\" aria-hidden=\"true\"></i>\n  <span *ngIf=\"label\">{{ label }}</span>\n</button>\n"
+        },
+        {
+            "name": "CardComponent",
+            "id": "component-CardComponent-6c3b92064b0d416f948b5e8ab9e133880d550a0ffccc9b4539c5ebb0d94d289ea84ff197a8da69f4bb394adb8a98498ef5547903ab9d68b68f3d35604efca7bb",
+            "file": "src/lib/components/card/card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-card",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "showFooter",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "subtitle",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "string",
                     "decorators": []
                 }
             ],
@@ -188,29 +401,1103 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport type SgButtonVariant = 'primary' | 'outline' | 'secondary' | 'icon' | 'icon-outline';\nexport type SgButtonSize = 'sm' | 'md' | 'lg';\nexport type SgButtonType = 'button' | 'submit' | 'reset';\n\n@Component({\n  selector: 'siga-button',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './button.component.html',\n  styleUrl: './button.component.scss',\n})\nexport class ButtonComponent {\n  @Input() label: string = '';\n  @Input() variant: SgButtonVariant = 'primary';\n  @Input() size: SgButtonSize = 'sm';\n  @Input() disabled: boolean = false;\n  @Input() type: SgButtonType = 'button';\n  @Input() iconClass: string = '';\n\n  get buttonClasses(): string {\n    return `btn btn-sg btn-${this.variant} btn-size-${this.size}`;\n  }\n}\n",
-            "styleUrl": "./button.component.scss",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-card',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './card.component.html',\n  styleUrl: './card.component.scss',\n})\nexport class CardComponent {\n  @Input() title: string = '';\n  @Input() subtitle: string = '';\n  @Input() showFooter: boolean = false;\n}\n",
+            "styleUrl": "./card.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-card card\">\n  <div class=\"card-body\">\n    <div *ngIf=\"title\" class=\"sg-card-header\">\n      <span class=\"sg-card-title\">{{ title }}</span>\n      <span *ngIf=\"subtitle\" class=\"sg-card-subtitle\">{{ subtitle }}</span>\n      <hr class=\"sg-card-divider\" />\n    </div>\n    <ng-content></ng-content>\n  </div>\n  <div *ngIf=\"showFooter\" class=\"card-footer\">\n    <ng-content select=\"[sgCardFooter]\"></ng-content>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "CardHitoComponent",
+            "id": "component-CardHitoComponent-3b81e367970dab0d8f766405b18079e338ba3afc9687bf223b95c5b1d5da77b8b4e0ef5e260910189593d3d527b01b9d7a041bb3799648ed17bc87c269ad9220",
+            "file": "src/lib/components/card-hito/card-hito.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-card-hito",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./card-hito.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "idHito",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nNúmero/Identificador a ser exibido no círculo",
+                    "description": "<p>Número/Identificador a ser exibido no círculo</p>\n",
+                    "line": 13,
+                    "type": "string | number",
+                    "decorators": []
+                },
+                {
+                    "name": "status",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTexto de status (\"No tempo\", \"Atrasado\")",
+                    "description": "<p>Texto de status (&quot;No tempo&quot;, &quot;Atrasado&quot;)</p>\n",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "statusColor",
+                    "defaultValue": "'success'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nCor do texto de status. Usa a paleta semântica (ex: 'success', 'danger')",
+                    "description": "<p>Cor do texto de status. Usa a paleta semântica (ex: &#39;success&#39;, &#39;danger&#39;)</p>\n",
+                    "line": 25,
+                    "type": "\"success\" | \"warning\" | \"danger\" | \"default\"",
+                    "decorators": []
+                },
+                {
+                    "name": "time",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nInformação de tempo (ex: \"09:45\" ou \"09:45 03/04\")",
+                    "description": "<p>Informação de tempo (ex: &quot;09:45&quot; ou &quot;09:45 03/04&quot;)</p>\n",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTítulo principal do cartão",
+                    "description": "<p>Título principal do cartão</p>\n",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "variant",
+                    "defaultValue": "'default'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nVariante visual do cartão que altera background e borda",
+                    "description": "<p>Variante visual do cartão que altera background e borda</p>\n",
+                    "line": 28,
+                    "type": "\"success\" | \"warning\" | \"danger\" | \"default\"",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-card-hito',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './card-hito.component.html',\n  styleUrl: './card-hito.component.scss',\n})\nexport class CardHitoComponent {\n  /** Número/Identificador a ser exibido no círculo */\n  @Input() idHito: string | number = '';\n  \n  /** Título principal do cartão */\n  @Input() title: string = '';\n  \n  /** Informação de tempo (ex: \"09:45\" ou \"09:45 03/04\") */\n  @Input() time?: string = '';\n  \n  /** Texto de status (\"No tempo\", \"Atrasado\") */\n  @Input() status?: string = '';\n  \n  /** Cor do texto de status. Usa a paleta semântica (ex: 'success', 'danger') */\n  @Input() statusColor?: 'success' | 'warning' | 'danger' | 'default' = 'success';\n  \n  /** Variante visual do cartão que altera background e borda */\n  @Input() variant: 'success' | 'warning' | 'danger' | 'default' = 'default';\n\n  get hasContent(): boolean {\n    return !!(this.time || this.status);\n  }\n}\n",
+            "styleUrl": "./card-hito.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
             "accessors": {
-                "buttonClasses": {
-                    "name": "buttonClasses",
+                "hasContent": {
+                    "name": "hasContent",
                     "getSignature": {
-                        "name": "buttonClasses",
-                        "type": "string",
-                        "returnType": "string",
-                        "line": 23
+                        "name": "hasContent",
+                        "type": "boolean",
+                        "returnType": "boolean",
+                        "line": 30
                     }
                 }
             },
-            "templateData": "<button\n  [type]=\"type\"\n  [disabled]=\"disabled\"\n  [class]=\"buttonClasses\"\n  [attr.aria-disabled]=\"disabled || null\">\n  <i *ngIf=\"iconClass\" [class]=\"iconClass\" aria-hidden=\"true\"></i>\n  <span *ngIf=\"label\">{{ label }}</span>\n</button>\n"
+            "templateData": "<div class=\"sg-card-hito\" [ngClass]=\"['sg-card-hito--' + variant]\">\n  <div class=\"sg-avatar\">\n    {{ idHito }}\n  </div>\n  \n  <div class=\"sg-content\">\n    <div class=\"sg-title\" [title]=\"title\">\n      {{ title }}\n    </div>\n    \n    <div class=\"sg-footer\">\n      <ng-container *ngIf=\"hasContent; else emptyContent\">\n        <span class=\"sg-time\" *ngIf=\"time\">{{ time }}</span>\n        <span class=\"sg-status\" [ngClass]=\"'sg-text-' + statusColor\" *ngIf=\"status\">\n          {{ status }}\n        </span>\n      </ng-container>\n      \n      <ng-template #emptyContent>\n        <span class=\"sg-time-empty\">-</span>\n      </ng-template>\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "FilterComponent",
+            "id": "component-FilterComponent-459d0c918e31a42f6bca38d214fbbb63ffd386f50741972aa9bc5f532d90a547177a81bf922d9096131ae989438efce7ce21dcec7a54f56c8f858944650a153f",
+            "file": "src/lib/components/filter/filter.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-filter",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./filter.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [],
+            "outputsClass": [
+                {
+                    "name": "cleared",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "searched",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from '../button/button.component';\n\n@Component({\n  selector: 'siga-filter',\n  standalone: true,\n  imports: [CommonModule, ButtonComponent],\n  templateUrl: './filter.component.html',\n  styleUrl: './filter.component.scss',\n})\nexport class FilterComponent {\n  @Output() searched = new EventEmitter<void>();\n  @Output() cleared = new EventEmitter<void>();\n}\n",
+            "styleUrl": "./filter.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-filters filters\" role=\"search\" aria-label=\"Filtros\">\n  <ng-content></ng-content>\n  <div class=\"actions\" role=\"group\" aria-label=\"Ações de filtro\">\n    <siga-button\n      label=\"Limpar\"\n      variant=\"secondary\"\n      size=\"sm\"\n      (click)=\"cleared.emit()\">\n    </siga-button>\n    <siga-button\n      label=\"Filtrar\"\n      variant=\"primary\"\n      size=\"sm\"\n      iconClass=\"fa-regular fa-magnifying-glass\"\n      (click)=\"searched.emit()\">\n    </siga-button>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "HeaderComponent",
+            "id": "component-HeaderComponent-93d935347f86c5379b818cb66ef0b64617352bd56747578fae0ab02878343af533d4c525a0229149d2dbba92f296268dffcf94fe8dcd7b533c33341f4e5a87d4",
+            "file": "src/lib/components/header/header.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-header",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./header.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "currentDate",
+                    "defaultValue": "'16/09/2025'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "currentDayOfWeek",
+                    "defaultValue": "'JUEVES'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "currentLanguage",
+                    "defaultValue": "'ES'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "currentTime",
+                    "defaultValue": "'09:00'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "logoUrl",
+                    "defaultValue": "'/latam-logo.png'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "selectedAirport",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "literal type | null",
+                    "decorators": []
+                },
+                {
+                    "name": "selectedModule",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "literal type | null",
+                    "decorators": []
+                },
+                {
+                    "name": "user",
+                    "defaultValue": "null",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 12,
+                    "type": "literal type | null",
+                    "decorators": []
+                },
+                {
+                    "name": "utcTime",
+                    "defaultValue": "'12:00'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "logout",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-header',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './header.component.html',\n  styleUrl: './header.component.scss',\n})\nexport class HeaderComponent {\n  @Input() user: { name: string; provider?: string } | null = null;\n  @Input() selectedModule: { id: string; label: string } | null = null;\n  @Input() selectedAirport: { code: string; country?: string } | null = null;\n  \n  @Input() currentDayOfWeek: string = 'JUEVES';\n  @Input() currentDate: string = '16/09/2025';\n  \n  @Input() currentTime: string = '09:00';\n  @Input() utcTime: string = '12:00';\n\n  @Input() currentLanguage: string = 'ES';\n  \n  @Input() logoUrl: string = '/latam-logo.png'; // Uses public mapped path in Storybook\n\n  @Output() logout = new EventEmitter<void>();\n}\n",
+            "styleUrl": "./header.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<header class=\"siga-header\">\n  <div class=\"header-left\">\n    <!-- Logo -->\n    <div class=\"brand\">\n      <img [src]=\"logoUrl\" alt=\"LATAM Airlines\" class=\"brand-logo\" />\n    </div>\n\n    <!-- Modules (CONECTA+) -->\n    <div class=\"header-item selectable\" *ngIf=\"selectedModule\">\n      <span class=\"value\">{{ selectedModule.label }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- Airport (GRU) -->\n    <div class=\"header-item selectable\" *ngIf=\"selectedAirport\">\n      <span class=\"value display-lg\">{{ selectedAirport.code }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- Date  -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line bold\">{{ currentDayOfWeek }}</span>\n      <span class=\"bottom-line\">{{ currentDate }}</span>\n    </div>\n\n    <!-- Local Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ currentTime }}</span>\n      <span class=\"bottom-line\">Local Time</span>\n    </div>\n\n    <!-- UTC Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ utcTime }}</span>\n      <span class=\"bottom-line\">UTC Time</span>\n    </div>\n  </div>\n\n  <div class=\"header-right\">\n    <!-- Language -->\n    <div class=\"header-item selectable\">\n      <i class=\"fa-solid fa-globe action-icon\"></i>\n      <span class=\"value\">{{ currentLanguage }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- User -->\n    <div class=\"header-item selectable user-dropdown\" *ngIf=\"user\">\n      <i class=\"fa-solid fa-user action-icon user-icon\"></i>\n      <div class=\"dual-line user-details\">\n        <span class=\"top-line bold\">{{ user.name }}</span>\n        <span class=\"bottom-line\" *ngIf=\"user.provider\">{{ user.provider }}</span>\n      </div>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n  </div>\n</header>\n"
+        },
+        {
+            "name": "InputComponent",
+            "id": "component-InputComponent-03868ba6105c004fe690a3a313c5e40cc98228b433de58d6d930010b35375e47a009a28fdda6ae2650298eae33f442d0de29463f9104524c03e49d56dd22a177",
+            "file": "src/lib/components/input/input.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-input",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./input.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "errorMessage",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "id",
+                    "defaultValue": "`siga-input-${++inputCounter}`",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "placeholder",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "required",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "type",
+                    "defaultValue": "'text'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "InputType",
+                    "decorators": []
+                },
+                {
+                    "name": "value",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\nexport type InputType = 'text' | 'email' | 'password' | 'number' | 'search' | 'tel';\n\nlet inputCounter = 0;\n\n@Component({\n  selector: 'siga-input',\n  standalone: true,\n  imports: [CommonModule, FormsModule],\n  templateUrl: './input.component.html',\n  styleUrl: './input.component.scss',\n})\nexport class InputComponent {\n  @Input() label: string = '';\n  @Input() placeholder: string = '';\n  @Input() type: InputType = 'text';\n  @Input() disabled: boolean = false;\n  @Input() required: boolean = false;\n  @Input() errorMessage: string = '';\n  @Input() value: string = '';\n  @Input() id: string = `siga-input-${++inputCounter}`;\n}\n",
+            "styleUrl": "./input.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"form-group sg-input-group\">\n  <label *ngIf=\"label\" [for]=\"id\" class=\"sg-input-label\">\n    {{ label }}<span *ngIf=\"required\" class=\"sg-input-required\" aria-hidden=\"true\">*</span>\n  </label>\n  <input\n    [id]=\"id\"\n    [type]=\"type\"\n    [placeholder]=\"placeholder\"\n    [disabled]=\"disabled\"\n    [attr.required]=\"required || null\"\n    [attr.aria-invalid]=\"errorMessage ? 'true' : null\"\n    [(ngModel)]=\"value\"\n    class=\"form-control form-control-sm\"\n    [class.is-invalid]=\"errorMessage\"\n  />\n  <div *ngIf=\"errorMessage\" [id]=\"id + '-error'\" class=\"sg-input-error\" role=\"alert\">\n    {{ errorMessage }}\n  </div>\n</div>\n"
+        },
+        {
+            "name": "ModalComponent",
+            "id": "component-ModalComponent-ff94e120e0a148b15b16c6230f1829b8f1ff2f9d9eede66dddb0aa90445aae73cff00b7a8602de79b2bb9f708b6820fe500d8a58fe62fc630c59b997ce23eded",
+            "file": "src/lib/components/modal/modal.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-modal",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./modal.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "bannerText",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "bannerTitle",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "cancelLabel",
+                    "defaultValue": "'Não'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "confirmLabel",
+                    "defaultValue": "'Sim'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "showBanner",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 17,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "showFooter",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "title",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "cancelled",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "confirmed",
+                    "defaultValue": "new EventEmitter<void>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 21,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { ButtonComponent } from '../button/button.component';\n\n@Component({\n  selector: 'siga-modal',\n  standalone: true,\n  imports: [CommonModule, ButtonComponent],\n  templateUrl: './modal.component.html',\n  styleUrl: './modal.component.scss',\n})\nexport class ModalComponent {\n  @Input() title: string = '';\n  @Input() confirmLabel: string = 'Sim';\n  @Input() cancelLabel: string = 'Não';\n  @Input() showFooter: boolean = true;\n  @Input() showBanner: boolean = false;\n  @Input() bannerTitle: string = '';\n  @Input() bannerText: string = '';\n\n  @Output() confirmed = new EventEmitter<void>();\n  @Output() cancelled = new EventEmitter<void>();\n}\n",
+            "styleUrl": "./modal.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-modal\" role=\"dialog\" [attr.aria-label]=\"title\">\n\n  <!-- Cabeçalho -->\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">{{ title }}</h4>\n    <button type=\"button\" class=\"btn-close btn-sm\" aria-label=\"Fechar\" (click)=\"cancelled.emit()\"></button>\n  </div>\n\n  <!-- Banner informativo -->\n  <div *ngIf=\"showBanner\" class=\"modal-banner\">\n    <div class=\"details-info\" role=\"note\">\n      <i class=\"fa-regular fa-circle-info\" aria-hidden=\"true\"></i>\n      <div class=\"text-banner\">\n        <span *ngIf=\"bannerTitle\" class=\"title-banner\">{{ bannerTitle }}</span>\n        <span *ngIf=\"bannerText\">{{ bannerText }}</span>\n      </div>\n    </div>\n  </div>\n\n  <!-- Corpo -->\n  <div class=\"modal-body\">\n    <ng-content></ng-content>\n  </div>\n\n  <!-- Rodapé com ações -->\n  <div *ngIf=\"showFooter\" class=\"modal-footer\">\n    <siga-button [label]=\"cancelLabel\" variant=\"secondary\" size=\"sm\" (click)=\"cancelled.emit()\"></siga-button>\n    <siga-button [label]=\"confirmLabel\" variant=\"primary\" size=\"sm\" (click)=\"confirmed.emit()\"></siga-button>\n  </div>\n\n</div>\n"
+        },
+        {
+            "name": "NavbarComponent",
+            "id": "component-NavbarComponent-0e6a6e305e275f16e6f5e1810438ae6e2469b1234d6335028ad16e03d7df6278f1be8e0243839ba688982e3fa11b1a49bf10614517685f485a6e1b40108b63b2",
+            "file": "src/lib/components/navbar/navbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-navbar",
+            "styleUrls": [
+                "./navbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./navbar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "items",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "NavbarItem[]",
+                    "decorators": []
+                },
+                {
+                    "name": "rightItem",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 20,
+                    "type": "NavbarItem",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "itemClick",
+                    "defaultValue": "new EventEmitter<NavbarItem>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onItemClick",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "NavbarItem",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 24,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "NavbarItem",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\nexport interface NavbarItem {\n  id: string;\n  label: string;\n  icon: string;\n  active?: boolean;\n}\n\n@Component({\n  selector: 'siga-navbar',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './navbar.component.html',\n  styleUrls: ['./navbar.component.scss']\n})\nexport class NavbarComponent {\n  @Input() items: NavbarItem[] = [];\n  @Input() rightItem?: NavbarItem;\n  \n  @Output() itemClick = new EventEmitter<NavbarItem>();\n\n  onItemClick(item: NavbarItem) {\n    // Only emit if not already active to prevent redundant calls\n    if (!item.active) {\n      this.itemClick.emit(item);\n    }\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".siga-navbar {\n  width: 100%;\n  /* Utiliza a mesma técnica de gradiente para combinar as duas barras LATAM (com divisória suave) */\n  background: linear-gradient(to bottom, #ef2a5e 0%, #ef2a5e 50%, #ed1650 50%, #ed1650 100%);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  font-family: var(--siga-font-family, sans-serif);\n  height: 52px; /* Compatível com a altura de icon + texto */\n  box-sizing: border-box;\n}\n\nul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  height: 100%;\n}\n\n.nav-left, .nav-right {\n  display: flex;\n  height: 100%;\n}\n\n.nav-item {\n  height: 100%;\n  display: flex;\n  align-items: center;\n  cursor: pointer;\n  transition: all 0.2s ease;\n  border-right: 1px solid rgba(255, 255, 255, 0.1);\n\n  a {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    padding: 0 16px;\n    height: 100%;\n    color: var(--siga-text-white, #ffffff);\n    text-decoration: none;\n    transition: all 0.2s ease;\n\n    i {\n      font-size: 20px;\n      margin-bottom: 4px;\n    }\n\n    span {\n      font-size: var(--siga-font-size-xs, 10px);\n      font-weight: 500;\n      white-space: nowrap;\n    }\n  }\n\n  /* Estado ativo tem cor bordô escudo */\n  &.active {\n    background: linear-gradient(to bottom, #a50d36 0%, #a50d36 50%, #960c31 51%, #960c31 100%);\n  }\n\n  /* Efeio de hover: preenchimento branco com texto e ícone da cor do fundo do menu (LATAM) */\n  &:hover:not(.active) {\n    background: #ffffff;\n    \n    a {\n      color: #ed1650;\n    }\n  }\n}\n\n.nav-left .nav-item:first-child {\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n\n.nav-right .nav-item {\n  border-right: none;\n  border-left: 1px solid rgba(255, 255, 255, 0.1);\n}\n\n/* Reduz ícone de configurações ao lado direito, se necessário acompanhando o ref legado */\n.right-item a i {\n  font-size: 16px;\n  margin-bottom: 6px;\n}\n",
+                    "styleUrl": "./navbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<nav class=\"siga-navbar\">\n  <ul class=\"nav-left\">\n    <li \n      class=\"nav-item\" \n      *ngFor=\"let item of items\" \n      [class.active]=\"item.active\" \n      (click)=\"onItemClick(item)\">\n      <a class=\"nav-link\">\n        <i [class]=\"item.icon\"></i>\n        <span>{{ item.label }}</span>\n      </a>\n    </li>\n  </ul>\n  \n  <ul class=\"nav-right\" *ngIf=\"rightItem\">\n    <li \n      class=\"nav-item right-item\" \n      [class.active]=\"rightItem.active\" \n      (click)=\"onItemClick(rightItem)\">\n      <a class=\"nav-link\">\n         <i [class]=\"rightItem.icon\"></i>\n         <span>{{ rightItem.label }}</span>\n      </a>\n    </li>\n  </ul>\n</nav>\n"
+        },
+        {
+            "name": "PaginationComponent",
+            "id": "component-PaginationComponent-beb4a789456bd31915d1e111489eeadfc6135c7a355dff4697995a9b3df983433ae2c396f4efb483c5036b8b15059603b80366dd6ab49a55b7d9b8624a280b96",
+            "file": "src/lib/components/pagination/pagination.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-pagination",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./pagination.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "currentPage",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 13,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "pageSize",
+                    "defaultValue": "10",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 15,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "pageSizeOptions",
+                    "defaultValue": "[10, 25, 50, 100]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 16,
+                    "type": "number[]",
+                    "decorators": []
+                },
+                {
+                    "name": "totalItems",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "pageChanged",
+                    "defaultValue": "new EventEmitter<number>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 18,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "pageSizeChanged",
+                    "defaultValue": "new EventEmitter<number>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 19,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "pages",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 22
+                },
+                {
+                    "name": "showFirstEllipsis",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 23
+                },
+                {
+                    "name": "showLastEllipsis",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "boolean",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                },
+                {
+                    "name": "totalPages",
+                    "defaultValue": "1",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 21
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "goTo",
+                    "args": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 36,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "page",
+                            "type": "number",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                },
+                {
+                    "name": "onPageSizeChange",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 42,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "FormsModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { FormsModule } from '@angular/forms';\n\n@Component({\n  selector: 'siga-pagination',\n  standalone: true,\n  imports: [CommonModule, FormsModule],\n  templateUrl: './pagination.component.html',\n  styleUrl: './pagination.component.scss',\n})\nexport class PaginationComponent implements OnChanges {\n  @Input() currentPage: number = 1;\n  @Input() totalItems: number = 0;\n  @Input() pageSize: number = 10;\n  @Input() pageSizeOptions: number[] = [10, 25, 50, 100];\n\n  @Output() pageChanged = new EventEmitter<number>();\n  @Output() pageSizeChanged = new EventEmitter<number>();\n\n  totalPages: number = 1;\n  pages: number[] = [];\n  showFirstEllipsis: boolean = false;\n  showLastEllipsis: boolean = false;\n\n  ngOnChanges(): void {\n    this.totalPages = Math.ceil(this.totalItems / this.pageSize) || 1;\n    const delta = 2;\n    const start = Math.max(1, this.currentPage - delta);\n    const end = Math.min(this.totalPages, this.currentPage + delta);\n    this.pages = Array.from({ length: end - start + 1 }, (_, i) => start + i);\n    this.showFirstEllipsis = this.pages[0] > 2;\n    this.showLastEllipsis = this.pages[this.pages.length - 1] < this.totalPages - 1;\n  }\n\n  goTo(page: number): void {\n    if (page >= 1 && page <= this.totalPages) {\n      this.pageChanged.emit(page);\n    }\n  }\n\n  onPageSizeChange(event: Event): void {\n    this.pageSizeChanged.emit(Number((event.target as HTMLSelectElement).value));\n  }\n}\n",
+            "styleUrl": "./pagination.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<div class=\"sg-pagination-container\" role=\"navigation\" aria-label=\"Paginação\">\n  <nav aria-label=\"Páginas\">\n    <ul class=\"sg-pagination\">\n      <li class=\"sg-page-item\" [class.disabled]=\"currentPage === 1\">\n        <button type=\"button\" class=\"sg-page-link\" [disabled]=\"currentPage === 1\"\n          (click)=\"goTo(currentPage - 1)\" aria-label=\"Página anterior\">Anterior</button>\n      </li>\n\n      <li *ngIf=\"pages[0] > 1\" class=\"sg-page-item\">\n        <button type=\"button\" class=\"sg-page-link\" (click)=\"goTo(1)\">1</button>\n      </li>\n      <li *ngIf=\"showFirstEllipsis\" class=\"sg-page-item disabled\" aria-hidden=\"true\">\n        <span class=\"sg-page-link\">…</span>\n      </li>\n\n      <li *ngFor=\"let page of pages\" class=\"sg-page-item\" [class.active]=\"page === currentPage\">\n        <button type=\"button\" class=\"sg-page-link\" (click)=\"goTo(page)\"\n          [attr.aria-current]=\"page === currentPage ? 'page' : null\">{{ page }}</button>\n      </li>\n\n      <li *ngIf=\"showLastEllipsis\" class=\"sg-page-item disabled\" aria-hidden=\"true\">\n        <span class=\"sg-page-link\">…</span>\n      </li>\n      <li *ngIf=\"pages[pages.length-1] < totalPages\" class=\"sg-page-item\">\n        <button type=\"button\" class=\"sg-page-link\" (click)=\"goTo(totalPages)\">{{ totalPages }}</button>\n      </li>\n\n      <li class=\"sg-page-item\" [class.disabled]=\"currentPage === totalPages\">\n        <button type=\"button\" class=\"sg-page-link\" [disabled]=\"currentPage === totalPages\"\n          (click)=\"goTo(currentPage + 1)\" aria-label=\"Próxima página\">Próximo</button>\n      </li>\n    </ul>\n  </nav>\n\n  <div class=\"sg-items-per-page\">\n    <span class=\"sg-total-label\">{{ totalItems }} itens</span>\n    <select class=\"sg-page-size-select\" [value]=\"pageSize\" (change)=\"onPageSizeChange($event)\">\n      <option *ngFor=\"let size of pageSizeOptions\" [value]=\"size\">{{ size }}</option>\n    </select>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "SpinnerComponent",
+            "id": "component-SpinnerComponent-930ac0d92a39dbe3fcfa79f68d6022d8bb540661b5405e10166d8227de521bb17de6642a7415bb2bab561ad7e78691d6ebd33d2ab7c2a260d4d055ad2c08207d",
+            "file": "src/lib/components/spinner/spinner.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-spinner",
+            "styleUrls": [],
+            "styles": [
+                "\n    .sg-spinner-box {\n      width: 80px; height: 80px;\n      display: flex; flex-direction: column;\n      justify-content: center; align-items: center;\n      background: var(--siga-surface);\n      border-radius: var(--siga-radius-md);\n      box-shadow: var(--siga-shadow-md);\n      i { color: var(--siga-color-primary); }\n    }\n    .visually-hidden {\n      position: absolute; width: 1px; height: 1px;\n      padding: 0; margin: -1px; overflow: hidden;\n      clip: rect(0,0,0,0); white-space: nowrap; border: 0;\n    }\n  "
+            ],
+            "template": "<div *ngIf=\"visible\" class=\"sg-spinner-box\" role=\"status\" [attr.aria-label]=\"label\">\n  <i class=\"fa-regular fa-circle-notch fa-spin fa-2x\" aria-hidden=\"true\"></i>\n  <span class=\"visually-hidden\">{{ label }}</span>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "label",
+                    "defaultValue": "'Aguarde...'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "visible",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 32,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-spinner',\n  standalone: true,\n  imports: [CommonModule],\n  template: `\n    <div *ngIf=\"visible\" class=\"sg-spinner-box\" role=\"status\" [attr.aria-label]=\"label\">\n      <i class=\"fa-regular fa-circle-notch fa-spin fa-2x\" aria-hidden=\"true\"></i>\n      <span class=\"visually-hidden\">{{ label }}</span>\n    </div>\n  `,\n  styles: [`\n    .sg-spinner-box {\n      width: 80px; height: 80px;\n      display: flex; flex-direction: column;\n      justify-content: center; align-items: center;\n      background: var(--siga-surface);\n      border-radius: var(--siga-radius-md);\n      box-shadow: var(--siga-shadow-md);\n      i { color: var(--siga-color-primary); }\n    }\n    .visually-hidden {\n      position: absolute; width: 1px; height: 1px;\n      padding: 0; margin: -1px; overflow: hidden;\n      clip: rect(0,0,0,0); white-space: nowrap; border: 0;\n    }\n  `],\n})\nexport class SpinnerComponent {\n  @Input() visible: boolean = true;\n  @Input() label: string = 'Aguarde...';\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n    .sg-spinner-box {\n      width: 80px; height: 80px;\n      display: flex; flex-direction: column;\n      justify-content: center; align-items: center;\n      background: var(--siga-surface);\n      border-radius: var(--siga-radius-md);\n      box-shadow: var(--siga-shadow-md);\n      i { color: var(--siga-color-primary); }\n    }\n    .visually-hidden {\n      position: absolute; width: 1px; height: 1px;\n      padding: 0; margin: -1px; overflow: hidden;\n      clip: rect(0,0,0,0); white-space: nowrap; border: 0;\n    }\n  \n",
+            "extends": []
+        },
+        {
+            "name": "TableComponent",
+            "id": "component-TableComponent-d7b954e74eabf0b223deb7ccecb73792e05ef136a5e4da6d049fb7f3126d0ebb4201dd8bdf21be0edf9e15de34f1dd828a20f9be854ec2ec3543b4b36089d461",
+            "file": "src/lib/components/table/table.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-table",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./table.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "columns",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 22,
+                    "type": "TableColumn[]",
+                    "decorators": []
+                },
+                {
+                    "name": "emptyMessage",
+                    "defaultValue": "'Nenhum item encontrado.'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "hoverable",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 25,
+                    "type": "boolean",
+                    "decorators": []
+                },
+                {
+                    "name": "rows",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 23,
+                    "type": "T[]",
+                    "decorators": []
+                },
+                {
+                    "name": "striped",
+                    "defaultValue": "true",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 24,
+                    "type": "boolean",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "rowActionsTpl",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "TemplateRef<any>",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 28,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "'rowActions', {static: false}"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                }
+            ],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "BadgeComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, ContentChild, TemplateRef } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\n\nexport interface TableColumn {\n  key: string;\n  label: string;\n  align?: 'start' | 'center' | 'end';\n  type?: 'text' | 'badge';\n  badgeVariant?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'blue' | 'default';\n  // Se o variant for dinamico da linha, podemos passar pelo row\n}\n\n@Component({\n  selector: 'siga-table',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent],\n  templateUrl: './table.component.html',\n  styleUrl: './table.component.scss',\n})\nexport class TableComponent<T extends Record<string, any>> {\n  @Input() columns: TableColumn[] = [];\n  @Input() rows: T[] = [];\n  @Input() striped: boolean = true;\n  @Input() hoverable: boolean = true;\n  @Input() emptyMessage: string = 'Nenhum item encontrado.';\n\n  @ContentChild('rowActions', { static: false }) rowActionsTpl?: TemplateRef<any>;\n}\n",
+            "styleUrl": "./table.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-table-wrapper\">\n  <table\n    class=\"table\"\n    [class.table-striped]=\"striped\"\n    [class.table-hover]=\"hoverable\"\n    role=\"grid\">\n    <thead>\n      <tr>\n        <th\n          *ngFor=\"let col of columns\"\n          scope=\"col\"\n          class=\"table-header\"\n          [class]=\"'text-' + (col.align || 'start')\">\n          {{ col.label }}\n        </th>\n        <th *ngIf=\"rowActionsTpl\" scope=\"col\" class=\"table-header text-end\">Ações</th>\n      </tr>\n    </thead>\n\n    <tbody>\n      <tr *ngIf=\"rows.length === 0\">\n        <td [attr.colspan]=\"columns.length + (rowActionsTpl ? 1 : 0)\" class=\"empty-list\">\n          {{ emptyMessage }}\n        </td>\n      </tr>\n      \n      <tr *ngFor=\"let row of rows\" class=\"table-body\">\n        <td *ngFor=\"let col of columns\" [class]=\"'text-' + (col.align || 'start')\">\n          \n          <ng-container *ngIf=\"!col.type || col.type === 'text'\">\n            {{ row[col.key] }}\n          </ng-container>\n\n          <ng-container *ngIf=\"col.type === 'badge'\">\n            <siga-badge [label]=\"row[col.key]\" [variant]=\"row[col.key + '_variant'] || col.badgeVariant || 'blue'\" size=\"sm\"></siga-badge>\n          </ng-container>\n\n        </td>\n        <td *ngIf=\"rowActionsTpl\" class=\"text-end\">\n          <ng-container *ngTemplateOutlet=\"rowActionsTpl; context: { $implicit: row }\"></ng-container>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
         }
     ],
     "modules": [],
     "miscellaneous": {
-        "variables": [],
+        "variables": [
+            {
+                "name": "inputCounter",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/lib/components/input/input.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "number",
+                "defaultValue": "0"
+            }
+        ],
         "functions": [],
         "typealiases": [
             {
@@ -230,6 +1517,17 @@
                 "subtype": "typealias",
                 "rawtype": "\"blue\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"default\"",
                 "file": "src/lib/components/badge/badge.component.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "kind": 193
+            },
+            {
+                "name": "InputType",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "\"text\" | \"email\" | \"password\" | \"number\" | \"search\" | \"tel\"",
+                "file": "src/lib/components/input/input.component.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "description": "",
@@ -270,7 +1568,20 @@
             }
         ],
         "enumerations": [],
-        "groupedVariables": {},
+        "groupedVariables": {
+            "src/lib/components/input/input.component.ts": [
+                {
+                    "name": "inputCounter",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/lib/components/input/input.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "defaultValue": "0"
+                }
+            ]
+        },
         "groupedFunctions": {},
         "groupedEnumerations": {},
         "groupedTypeAliases": {
@@ -292,6 +1603,19 @@
                     "subtype": "typealias",
                     "rawtype": "\"blue\" | \"success\" | \"warning\" | \"danger\" | \"info\" | \"default\"",
                     "file": "src/lib/components/badge/badge.component.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "kind": 193
+                }
+            ],
+            "src/lib/components/input/input.component.ts": [
+                {
+                    "name": "InputType",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "\"text\" | \"email\" | \"password\" | \"number\" | \"search\" | \"tel\"",
+                    "file": "src/lib/components/input/input.component.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "description": "",
@@ -341,7 +1665,7 @@
         "children": []
     },
     "coverage": {
-        "count": 0,
+        "count": 4,
         "status": "low",
         "files": [
             {
@@ -379,7 +1703,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/7",
+                "coverageCount": "0/8",
                 "status": "low"
             },
             {
@@ -410,6 +1734,134 @@
                 "name": "SgButtonVariant",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/card-hito/card-hito.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardHitoComponent",
+                "coveragePercent": 85,
+                "coverageCount": "6/7",
+                "status": "very-good"
+            },
+            {
+                "filePath": "src/lib/components/card/card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CardComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/filter/filter.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "FilterComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/header/header.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "HeaderComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/11",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/input/input.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "InputComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/9",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/input/input.component.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "inputCounter",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/input/input.component.ts",
+                "type": "type alias",
+                "linktype": "miscellaneous",
+                "linksubtype": "typealias",
+                "name": "InputType",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/modal/modal.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ModalComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/10",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/navbar/navbar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "NavbarComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/navbar/navbar.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "NavbarItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/pagination/pagination.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "PaginationComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/14",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/spinner/spinner.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "SpinnerComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/3",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/table/table.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "TableComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/table/table.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "TableColumn",
+                "coveragePercent": 0,
+                "coverageCount": "0/6",
                 "status": "low"
             }
         ]

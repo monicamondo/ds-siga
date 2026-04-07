@@ -1,0 +1,24 @@
+<div class="sg-card-hito" [ngClass]="['sg-card-hito--' + variant]">
+  <div class="sg-avatar">
+    {{ idHito }}
+  </div>
+  
+  <div class="sg-content">
+    <div class="sg-title" [title]="title">
+      {{ title }}
+    </div>
+    
+    <div class="sg-footer">
+      <ng-container *ngIf="hasContent; else emptyContent">
+        <span class="sg-time" *ngIf="time">{{ time }}</span>
+        <span class="sg-status" [ngClass]="'sg-text-' + statusColor" *ngIf="status">
+          {{ status }}
+        </span>
+      </ng-container>
+      
+      <ng-template #emptyContent>
+        <span class="sg-time-empty">-</span>
+      </ng-template>
+    </div>
+  </div>
+</div>

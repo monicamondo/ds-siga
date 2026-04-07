@@ -1,0 +1,86 @@
+<div class="sg-monitoring-row">
+  <!-- Header -->
+  <header class="sg-monitoring-row__header">
+    <div class="sg-monitoring-row__header-left">
+      <h2 class="sg-monitoring-row__flight-number">{{ flightNumber }}</h2>
+      <siga-badge [label]="flightTag" [variant]="flightTagVariant" size="sm"></siga-badge>
+      <span class="sg-monitoring-row__agent">
+        <span class="sg-monitoring-row__agent-label">AGENTE(S)</span>
+        <span class="sg-monitoring-row__agent-name">{{ agentName }}</span>
+      </span>
+    </div>
+    <div class="sg-monitoring-row__header-actions">
+      <siga-button variant="outline" label="Comentários" iconClass="fa fa-comment-o" size="sm"></siga-button>
+      <siga-button variant="outline" label="Solução de viagem" iconClass="fa fa-suitcase" size="sm"></siga-button>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <div class="sg-monitoring-row__divider"></div>
+
+  <!-- Content -->
+  <div class="sg-monitoring-row__content">
+    
+    <!-- Left: Voo Info -->
+    <div class="sg-monitoring-row__voo-info">
+      <div class="sg-monitoring-row__voo-label">VOO</div>
+      <div class="sg-monitoring-row__voo-container">
+        <!-- Origin -->
+        <div class="sg-monitoring-row__voo-point">
+          <div class="sg-monitoring-row__airport-code">
+            {{ origin }}<span class="sg-monitoring-row__sta">/STA-10:15</span>
+          </div>
+          <div class="sg-monitoring-row__gate">GATE: <b>{{ originGate }}</b> <siga-badge label="F" variant="blue" size="sm"></siga-badge></div>
+          <div class="sg-monitoring-row__origin-text">Origem</div>
+        </div>
+
+        <!-- Status & Duration -->
+        <div class="sg-monitoring-row__voo-status">
+          <siga-badge [label]="flightStatus" [variant]="flightStatusVariant" size="sm"></siga-badge>
+          <div class="sg-monitoring-row__duration">{{ duration }}</div>
+        </div>
+
+        <!-- Destination -->
+        <div class="sg-monitoring-row__voo-point">
+          <div class="sg-monitoring-row__airport-code">
+            {{ destination }}<span class="sg-monitoring-row__sta">/STA-10:15</span>
+          </div>
+          <div class="sg-monitoring-row__gate">GATE: <b>{{ destinationGate }}</b> <siga-badge label="F" variant="blue" size="sm"></siga-badge></div>
+          <div class="sg-monitoring-row__origin-text">Origem</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Timeline Hitos -->
+    <div class="sg-monitoring-row__hitos">
+      <div class="sg-monitoring-row__hitos-scroll">
+        <div *ngFor="let hito of hitos" class="sg-monitoring-row__hito-item">
+          <siga-card-hito
+            [idHito]="hito.idHito"
+            [title]="hito.title"
+            [time]="hito.time"
+            [status]="hito.status"
+            [statusColor]="hito.statusColor"
+            [variant]="hito.variant"
+          ></siga-card-hito>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Status Summary -->
+    <div class="sg-monitoring-row__status-summary">
+      <siga-status-card
+        [status]="statusVariant"
+        [current]="statusCurrent"
+        [total]="statusTotal"
+        [startTime]="statusStartTime"
+        [usersCount]="usersCount"
+        [usersTotal]="usersTotal"
+        [luggageCount]="luggageCount"
+        [luggageTotal]="luggageTotal"
+        [timeBadge]="timeBadge"
+      ></siga-status-card>
+    </div>
+
+  </div>
+</div>

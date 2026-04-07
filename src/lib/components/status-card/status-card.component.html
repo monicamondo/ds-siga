@@ -1,0 +1,44 @@
+<div class="sg-status-card">
+  <!-- StatusBar Component -->
+  <siga-status-bar 
+    [current]="current" 
+    [total]="total" 
+    [color]="status">
+  </siga-status-bar>
+  
+  <!-- Status Information -->
+  <ng-container *ngIf="status === 'success'">
+    <div class="sg-status-card__start-info" *ngIf="startTime">
+      <i class="fa fa-clock-o sg-status-card__icon text-muted"></i>
+      <span class="text-muted">Iniciado: {{ startTime }}</span>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="status === 'danger'">
+    <div class="sg-status-card__start-info text-danger">
+      <!-- You can swap the icon if needed, using times-circle for danger -->
+      <i class="fa fa-times-circle sg-status-card__icon text-danger"></i>
+      <span class="fw-bold">PAX não encontrado</span>
+    </div>
+  </ng-container>
+
+  <!-- Pequenos cards (ícones com label) -->
+  <div class="sg-status-card__metrics d-flex align-items-center">
+    
+    <div class="sg-status-card__info-item">
+      <i class="fa fa-user-o sg-status-card__icon sg-status-card__icon--metric text-secondary"></i>
+      <span class="sg-status-card__value">{{ usersCount }}/{{ usersTotal }}</span>
+    </div>
+    
+    <div class="sg-status-card__info-item">
+      <i class="far fa-suitcase sg-status-card__icon sg-status-card__icon--metric text-secondary"></i>
+      <span class="sg-status-card__value">{{ luggageCount }}/{{ luggageTotal }}</span>
+    </div>
+    
+    <div class="sg-status-card__info-item sg-status-card__info-item--highlight">
+      <i class="fa fa-clock-o sg-status-card__icon sg-status-card__icon--metric text-secondary"></i>
+      <span class="sg-status-card__time-info" *ngIf="timeBadge">{{ timeBadge }}</span>
+    </div>
+
+  </div>
+</div>

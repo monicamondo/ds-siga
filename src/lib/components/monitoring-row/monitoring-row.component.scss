@@ -1,0 +1,153 @@
+.sg-monitoring-row {
+  background: var(--siga-surface);
+  border: var(--siga-border-width-sm) solid var(--siga-border);
+  border-radius: var(--siga-radius-md);
+  padding: var(--siga-space-3);
+  margin-bottom: var(--siga-space-4);
+  box-shadow: var(--siga-shadow-sm);
+  font-family: var(--siga-font-family);
+  width: 100%;
+}
+
+.sg-monitoring-row__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--siga-space-2);
+}
+
+.sg-monitoring-row__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--siga-space-2);
+}
+
+.sg-monitoring-row__flight-number {
+  font-size: var(--siga-font-size-md);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-primary);
+  margin: 0;
+}
+
+.sg-monitoring-row__agent {
+  display: flex;
+  align-items: center;
+  gap: var(--siga-space-2);
+  margin-left: var(--siga-space-4);
+}
+
+.sg-monitoring-row__agent-label {
+  font-size: var(--siga-font-size-xs);
+  color: var(--siga-text-tertiary);
+  font-weight: var(--siga-font-weight-regular);
+}
+
+.sg-monitoring-row__agent-name {
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-text-secondary);
+  font-weight: var(--siga-font-weight-regular);
+}
+
+.sg-monitoring-row__header-actions {
+  display: flex;
+  gap: var(--siga-space-2);
+}
+
+.sg-monitoring-row__divider {
+  border-top: var(--siga-border-width-sm) solid var(--siga-border);
+  margin: var(--siga-space-2) 0;
+}
+
+.sg-monitoring-row__content {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: var(--siga-space-4);
+  align-items: center;
+}
+
+/* Voo Info Section */
+.sg-monitoring-row__voo-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.sg-monitoring-row__voo-label {
+  font-size: var(--siga-font-size-xs);
+  color: var(--siga-text-tertiary);
+  margin-bottom: var(--siga-space-1);
+}
+
+.sg-monitoring-row__voo-container {
+  display: flex;
+  align-items: center;
+  gap: var(--siga-space-2);
+}
+
+.sg-monitoring-row__voo-point {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sg-monitoring-row__airport-code {
+  font-size: var(--siga-font-size-sm);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-primary);
+}
+
+.sg-monitoring-row__sta {
+  font-size: 10px;
+  color: var(--siga-text-tertiary);
+  font-weight: var(--siga-font-weight-regular);
+}
+
+.sg-monitoring-row__gate {
+  font-size: 10px;
+  color: var(--siga-text-secondary);
+}
+
+.sg-monitoring-row__origin-text {
+  font-size: 10px;
+  color: var(--siga-text-tertiary);
+}
+
+.sg-monitoring-row__voo-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.sg-monitoring-row__duration {
+  font-size: 10px;
+  color: var(--siga-text-tertiary);
+}
+
+/* Timeline Hitos Section */
+.sg-monitoring-row__hitos {
+  display: flex;
+  align-items: center;
+}
+
+.sg-monitoring-row__hitos-scroll {
+  display: flex;
+  gap: var(--siga-space-2);
+  overflow-x: auto;
+  padding: var(--siga-space-1) 0;
+  
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+}
+
+.sg-monitoring-row__hito-item {
+  flex: 0 0 auto;
+}
+
+/* Status Summary Section */
+.sg-monitoring-row__status-summary {
+  display: flex;
+  justify-content: flex-end;
+  border-left: var(--siga-border-width-sm) solid var(--siga-border);
+  padding-left: var(--siga-space-4);
+}

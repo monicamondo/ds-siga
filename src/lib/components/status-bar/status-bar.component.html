@@ -1,0 +1,22 @@
+<div class="sg-status-bar">
+  <div class="sg-status-bar__label-row" *ngIf="label">
+    <span class="sg-status-bar__label">{{ label }}</span>
+  </div>
+  
+  <div class="sg-status-bar__values-row">
+    <span class="sg-status-bar__count">{{ current }}/{{ total }}</span>
+    <span class="sg-status-bar__percent">{{ percentage }}%</span>
+  </div>
+  
+  <div class="progress sg-status-bar__progress">
+    <div 
+      class="progress-bar" 
+      [ngClass]="'bg-' + color"
+      role="progressbar" 
+      [style.width.%]="percentage" 
+      [attr.aria-valuenow]="percentage" 
+      aria-valuemin="0" 
+      aria-valuemax="100">
+    </div>
+  </div>
+</div>

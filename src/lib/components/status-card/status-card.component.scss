@@ -1,0 +1,71 @@
+.sg-status-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--siga-space-3) 0; /* Padding around the element */
+  width: 100%;
+  font-family: var(--siga-font-family);
+  gap: var(--siga-space-2);
+}
+
+.sg-status-card__start-info {
+  display: flex;
+  align-items: center;
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-text-tertiary);
+  margin-top: var(--siga-space-2);
+  margin-bottom: var(--siga-space-2);
+}
+
+.sg-status-card__icon {
+  margin-right: var(--siga-space-1);
+}
+
+.sg-status-card__icon--metric {
+  font-size: var(--siga-font-size-md);
+  color: var(--siga-text-secondary);
+}
+
+.sg-status-card__metrics {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--siga-space-4); /* spacing between the 3 info items */
+}
+
+.sg-status-card__info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sg-status-card__value {
+  font-size: var(--siga-font-size-md);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-primary);
+  line-height: 1;
+}
+
+.sg-status-card__info-item--highlight {
+  gap: 4px; /* Ajuste sutil para o highlight */
+}
+
+.sg-status-card__time-info {
+  font-size: var(--siga-font-size-sm);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-danger);
+  background-color: var(--siga-red-100);
+  padding: 2px 6px;
+  border-radius: var(--siga-radius-sm); /* Bordas mínimas para parecer "info de destaque" e não "tag/badge" */
+  line-height: 1;
+}
+
+/* Bootstrap Text Utilities Aliases */
+.text-muted {
+  color: var(--siga-text-tertiary) !important;
+}
+.text-secondary {
+  color: var(--siga-text-secondary) !important;
+}
+.text-danger {
+  color: var(--siga-danger) !important;
+}

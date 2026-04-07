@@ -1,0 +1,121 @@
+.sg-card-hito {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--siga-space-2);
+  padding: var(--siga-space-2);
+  border-radius: var(--siga-radius-md);
+  border: var(--siga-border-width-sm) solid transparent;
+  width: 140px; /* Largura fixa conforme correção */
+  height: 100%; /* O card tem sempre a mesma altura do maior vizinho no grid/flex */
+  box-sizing: border-box;
+  font-family: var(--siga-font-family);
+
+  &--success {
+    background: var(--siga-green-100);
+    border-color: var(--siga-green-400);
+
+    .sg-avatar {
+      background: var(--siga-brand-primary);
+      color: var(--siga-text-white);
+    }
+  }
+
+  &--warning {
+    background: var(--siga-yellow-100);
+    border-color: var(--siga-yellow-400);
+
+    .sg-avatar {
+      background: var(--siga-brand-primary);
+      color: var(--siga-text-white);
+    }
+  }
+
+  &--danger {
+    background: var(--siga-red-100);
+    border-color: var(--siga-red-300);
+
+    .sg-avatar {
+      background: var(--siga-brand-primary);
+      color: var(--siga-text-white);
+    }
+  }
+
+  &--default {
+    background: var(--siga-gray-100); /* Or white with grey border, matching default state */
+    border-color: var(--siga-gray-300);
+
+    .sg-avatar {
+      background: var(--siga-gray-400);
+      color: var(--siga-text-white);
+    }
+  }
+}
+
+.sg-avatar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  font-size: var(--siga-font-size-xs);
+  font-weight: var(--siga-font-weight-bold);
+  margin-top: 2px; // optical alignment with multiline title
+}
+
+.sg-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 2px;
+  min-width: 0; /* Important for flex child text truncation */
+  height: 100%;
+  justify-content: space-between; /* Empurra o footer para a base */
+}
+
+.sg-title {
+  font-size: var(--siga-font-size-sm);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-secondary);
+  line-height: var(--siga-line-height-heading);
+  min-height: calc(1.2em * 2); /* Espaço reservado para duas linhas */
+  word-wrap: break-word;
+}
+
+.sg-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--siga-space-1);
+  margin-top: 2px;
+  white-space: nowrap; /* Mantém horário e status na mesma linha */
+}
+
+.sg-time {
+  font-size: var(--siga-font-size-xs);
+  color: var(--siga-text-tertiary); /* grey */
+}
+
+.sg-status {
+  font-size: var(--siga-font-size-xs);
+  font-weight: var(--siga-font-weight-bold);
+}
+
+.sg-time-empty {
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-text-tertiary);
+}
+
+/* Status colors map to semantic tokens */
+.sg-text-success {
+  color: var(--siga-success);
+}
+.sg-text-warning {
+  color: var(--siga-yellow-600); /* warning text must contrast on yellow/white background */
+}
+.sg-text-danger {
+  color: var(--siga-danger);
+}
+.sg-text-default {
+  color: var(--siga-text-secondary);
+}

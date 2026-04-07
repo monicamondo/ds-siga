@@ -1,0 +1,53 @@
+.sg-status-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--siga-space-1);
+  font-family: var(--siga-font-family);
+  width: 100%;
+}
+
+.sg-status-bar__label-row {
+  margin-bottom: -2px; /* Pulls slightly closer to the values row */
+}
+
+.sg-status-bar__label {
+  font-size: var(--siga-font-size-xs);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sg-status-bar__values-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--siga-space-1);
+}
+
+.sg-status-bar__count {
+  font-size: var(--siga-font-size-md);
+  font-weight: var(--siga-font-weight-bold);
+  color: var(--siga-text-primary);
+  line-height: 1;
+}
+
+.sg-status-bar__percent {
+  font-size: var(--siga-font-size-sm);
+  color: var(--siga-text-tertiary);
+  line-height: 1;
+}
+
+/* Base Bootstrap override for this specific thin progress bar */
+.sg-status-bar__progress.progress {
+  height: 4px;
+  background-color: var(--siga-gray-200);
+  border-radius: var(--siga-radius-sm);
+  box-shadow: none; /* remove bootstrap default inset shadow if any */
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.sg-status-bar__progress .progress-bar {
+  border-radius: var(--siga-radius-sm);
+}
