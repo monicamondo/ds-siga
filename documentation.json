@@ -2,6 +2,81 @@
     "pipes": [],
     "interfaces": [
         {
+            "name": "HitoItem",
+            "id": "interface-HitoItem-2b2caf7cd2d99594dc7668bb4fc70b99fead578d6354dfe5e79d69ac13feed1a2707576950b9c67dc6a33bf94167fcd86e38313be44bce792291c82e56f3f154",
+            "file": "src/lib/components/monitoring-row/monitoring-row.component.ts",
+            "deprecated": false,
+            "deprecationMessage": "",
+            "type": "interface",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { ButtonComponent } from '../button/button.component';\nimport { CardHitoComponent } from '../card-hito/card-hito.component';\nimport { StatusCardComponent } from '../status-card/status-card.component';\n\nexport interface HitoItem {\n  idHito: string | number;\n  title: string;\n  time?: string;\n  status?: string;\n  statusColor?: 'success' | 'warning' | 'danger' | 'default';\n  variant: 'success' | 'warning' | 'danger' | 'default';\n}\n\n@Component({\n  selector: 'siga-monitoring-row',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, ButtonComponent, CardHitoComponent, StatusCardComponent],\n  templateUrl: './monitoring-row.component.html',\n  styleUrl: './monitoring-row.component.scss',\n})\nexport class MonitoringRowComponent {\n  /** Flight Header Info */\n  @Input() flightNumber: string = '';\n  @Input() flightTag: string = '';\n  @Input() flightTagVariant: any = 'success';\n  @Input() agentName: string = '';\n\n  /** Left Section Info (Voo) */\n  @Input() origin: string = '';\n  @Input() destination: string = '';\n  @Input() flightStatus: string = '';\n  @Input() flightStatusVariant: any = 'danger';\n  @Input() duration: string = '';\n  @Input() originGate: string = '';\n  @Input() destinationGate: string = '';\n\n  /** Timeline Hitos */\n  @Input() hitos: HitoItem[] = [];\n\n  /** Right Section (Status Card) */\n  @Input() statusCurrent: number = 0;\n  @Input() statusTotal: number = 0;\n  @Input() statusStartTime: string = '';\n  @Input() usersCount: number = 0;\n  @Input() usersTotal: number = 0;\n  @Input() luggageCount: number = 0;\n  @Input() luggageTotal: number = 0;\n  @Input() timeBadge: string = '';\n  @Input() statusVariant: 'success' | 'danger' = 'success';\n}\n",
+            "properties": [
+                {
+                    "name": "idHito",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string | number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 9
+                },
+                {
+                    "name": "status",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 12
+                },
+                {
+                    "name": "statusColor",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"success\" | \"warning\" | \"danger\" | \"default\"",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 13
+                },
+                {
+                    "name": "time",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": true,
+                    "description": "",
+                    "line": 11
+                },
+                {
+                    "name": "title",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "string",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 10
+                },
+                {
+                    "name": "variant",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "\"success\" | \"warning\" | \"danger\" | \"default\"",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 14
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 172,
+            "methods": [],
+            "extends": []
+        },
+        {
             "name": "NavbarItem",
             "id": "interface-NavbarItem-0e6a6e305e275f16e6f5e1810438ae6e2469b1234d6335028ad16e03d7df6278f1be8e0243839ba688982e3fa11b1a49bf10614517685f485a6e1b40108b63b2",
             "file": "src/lib/components/navbar/navbar.component.ts",
@@ -977,6 +1052,263 @@
             "templateData": "<div class=\"sg-modal\" role=\"dialog\" [attr.aria-label]=\"title\">\n\n  <!-- Cabeçalho -->\n  <div class=\"modal-header\">\n    <h4 class=\"modal-title\">{{ title }}</h4>\n    <button type=\"button\" class=\"btn-close btn-sm\" aria-label=\"Fechar\" (click)=\"cancelled.emit()\"></button>\n  </div>\n\n  <!-- Banner informativo -->\n  <div *ngIf=\"showBanner\" class=\"modal-banner\">\n    <div class=\"details-info\" role=\"note\">\n      <i class=\"fa-regular fa-circle-info\" aria-hidden=\"true\"></i>\n      <div class=\"text-banner\">\n        <span *ngIf=\"bannerTitle\" class=\"title-banner\">{{ bannerTitle }}</span>\n        <span *ngIf=\"bannerText\">{{ bannerText }}</span>\n      </div>\n    </div>\n  </div>\n\n  <!-- Corpo -->\n  <div class=\"modal-body\">\n    <ng-content></ng-content>\n  </div>\n\n  <!-- Rodapé com ações -->\n  <div *ngIf=\"showFooter\" class=\"modal-footer\">\n    <siga-button [label]=\"cancelLabel\" variant=\"secondary\" size=\"sm\" (click)=\"cancelled.emit()\"></siga-button>\n    <siga-button [label]=\"confirmLabel\" variant=\"primary\" size=\"sm\" (click)=\"confirmed.emit()\"></siga-button>\n  </div>\n\n</div>\n"
         },
         {
+            "name": "MonitoringRowComponent",
+            "id": "component-MonitoringRowComponent-2b2caf7cd2d99594dc7668bb4fc70b99fead578d6354dfe5e79d69ac13feed1a2707576950b9c67dc6a33bf94167fcd86e38313be44bce792291c82e56f3f154",
+            "file": "src/lib/components/monitoring-row/monitoring-row.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-monitoring-row",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./monitoring-row.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "agentName",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "destination",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 33,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "destinationGate",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 38,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "duration",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 36,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "flightNumber",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nFlight Header Info",
+                    "description": "<p>Flight Header Info</p>\n",
+                    "line": 26,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "flightStatus",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 34,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "flightStatusVariant",
+                    "defaultValue": "'danger'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 35,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "flightTag",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 27,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "flightTagVariant",
+                    "defaultValue": "'success'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
+                    "type": "any",
+                    "decorators": []
+                },
+                {
+                    "name": "hitos",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTimeline Hitos",
+                    "description": "<p>Timeline Hitos</p>\n",
+                    "line": 41,
+                    "type": "HitoItem[]",
+                    "decorators": []
+                },
+                {
+                    "name": "luggageCount",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 49,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "luggageTotal",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 50,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "origin",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nLeft Section Info (Voo)",
+                    "description": "<p>Left Section Info (Voo)</p>\n",
+                    "line": 32,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "originGate",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "statusCurrent",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nRight Section (Status Card)",
+                    "description": "<p>Right Section (Status Card)</p>\n",
+                    "line": 44,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "statusStartTime",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 46,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "statusTotal",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 45,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "statusVariant",
+                    "defaultValue": "'success'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 52,
+                    "type": "\"success\" | \"danger\"",
+                    "decorators": []
+                },
+                {
+                    "name": "timeBadge",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 51,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "usersCount",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 47,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "usersTotal",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 48,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "BadgeComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "ButtonComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "CardHitoComponent",
+                    "type": "component"
+                },
+                {
+                    "name": "StatusCardComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { BadgeComponent } from '../badge/badge.component';\nimport { ButtonComponent } from '../button/button.component';\nimport { CardHitoComponent } from '../card-hito/card-hito.component';\nimport { StatusCardComponent } from '../status-card/status-card.component';\n\nexport interface HitoItem {\n  idHito: string | number;\n  title: string;\n  time?: string;\n  status?: string;\n  statusColor?: 'success' | 'warning' | 'danger' | 'default';\n  variant: 'success' | 'warning' | 'danger' | 'default';\n}\n\n@Component({\n  selector: 'siga-monitoring-row',\n  standalone: true,\n  imports: [CommonModule, BadgeComponent, ButtonComponent, CardHitoComponent, StatusCardComponent],\n  templateUrl: './monitoring-row.component.html',\n  styleUrl: './monitoring-row.component.scss',\n})\nexport class MonitoringRowComponent {\n  /** Flight Header Info */\n  @Input() flightNumber: string = '';\n  @Input() flightTag: string = '';\n  @Input() flightTagVariant: any = 'success';\n  @Input() agentName: string = '';\n\n  /** Left Section Info (Voo) */\n  @Input() origin: string = '';\n  @Input() destination: string = '';\n  @Input() flightStatus: string = '';\n  @Input() flightStatusVariant: any = 'danger';\n  @Input() duration: string = '';\n  @Input() originGate: string = '';\n  @Input() destinationGate: string = '';\n\n  /** Timeline Hitos */\n  @Input() hitos: HitoItem[] = [];\n\n  /** Right Section (Status Card) */\n  @Input() statusCurrent: number = 0;\n  @Input() statusTotal: number = 0;\n  @Input() statusStartTime: string = '';\n  @Input() usersCount: number = 0;\n  @Input() usersTotal: number = 0;\n  @Input() luggageCount: number = 0;\n  @Input() luggageTotal: number = 0;\n  @Input() timeBadge: string = '';\n  @Input() statusVariant: 'success' | 'danger' = 'success';\n}\n",
+            "styleUrl": "./monitoring-row.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-monitoring-row\">\n  <!-- Header -->\n  <header class=\"sg-monitoring-row__header\">\n    <div class=\"sg-monitoring-row__header-left\">\n      <h2 class=\"sg-monitoring-row__flight-number\">{{ flightNumber }}</h2>\n      <siga-badge [label]=\"flightTag\" [variant]=\"flightTagVariant\" size=\"sm\"></siga-badge>\n      <span class=\"sg-monitoring-row__agent\">\n        <span class=\"sg-monitoring-row__agent-label\">AGENTE(S)</span>\n        <span class=\"sg-monitoring-row__agent-name\">{{ agentName }}</span>\n      </span>\n    </div>\n    <div class=\"sg-monitoring-row__header-actions\">\n      <siga-button variant=\"outline\" label=\"Comentários\" iconClass=\"fa fa-comment-o\" size=\"sm\"></siga-button>\n      <siga-button variant=\"outline\" label=\"Solução de viagem\" iconClass=\"fa fa-suitcase\" size=\"sm\"></siga-button>\n    </div>\n  </header>\n\n  <!-- Divider -->\n  <div class=\"sg-monitoring-row__divider\"></div>\n\n  <!-- Content -->\n  <div class=\"sg-monitoring-row__content\">\n    \n    <!-- Left: Voo Info -->\n    <div class=\"sg-monitoring-row__voo-info\">\n      <div class=\"sg-monitoring-row__voo-label\">VOO</div>\n      <div class=\"sg-monitoring-row__voo-container\">\n        <!-- Origin -->\n        <div class=\"sg-monitoring-row__voo-point\">\n          <div class=\"sg-monitoring-row__airport-code\">\n            {{ origin }}<span class=\"sg-monitoring-row__sta\">/STA-10:15</span>\n          </div>\n          <div class=\"sg-monitoring-row__gate\">GATE: <b>{{ originGate }}</b> <siga-badge label=\"F\" variant=\"blue\" size=\"sm\"></siga-badge></div>\n          <div class=\"sg-monitoring-row__origin-text\">Origem</div>\n        </div>\n\n        <!-- Status & Duration -->\n        <div class=\"sg-monitoring-row__voo-status\">\n          <siga-badge [label]=\"flightStatus\" [variant]=\"flightStatusVariant\" size=\"sm\"></siga-badge>\n          <div class=\"sg-monitoring-row__duration\">{{ duration }}</div>\n        </div>\n\n        <!-- Destination -->\n        <div class=\"sg-monitoring-row__voo-point\">\n          <div class=\"sg-monitoring-row__airport-code\">\n            {{ destination }}<span class=\"sg-monitoring-row__sta\">/STA-10:15</span>\n          </div>\n          <div class=\"sg-monitoring-row__gate\">GATE: <b>{{ destinationGate }}</b> <siga-badge label=\"F\" variant=\"blue\" size=\"sm\"></siga-badge></div>\n          <div class=\"sg-monitoring-row__origin-text\">Origem</div>\n        </div>\n      </div>\n    </div>\n\n    <!-- Center: Timeline Hitos -->\n    <div class=\"sg-monitoring-row__hitos\">\n      <div class=\"sg-monitoring-row__hitos-scroll\">\n        <div *ngFor=\"let hito of hitos\" class=\"sg-monitoring-row__hito-item\">\n          <siga-card-hito\n            [idHito]=\"hito.idHito\"\n            [title]=\"hito.title\"\n            [time]=\"hito.time\"\n            [status]=\"hito.status\"\n            [statusColor]=\"hito.statusColor\"\n            [variant]=\"hito.variant\"\n          ></siga-card-hito>\n        </div>\n      </div>\n    </div>\n\n    <!-- Right: Status Summary -->\n    <div class=\"sg-monitoring-row__status-summary\">\n      <siga-status-card\n        [status]=\"statusVariant\"\n        [current]=\"statusCurrent\"\n        [total]=\"statusTotal\"\n        [startTime]=\"statusStartTime\"\n        [usersCount]=\"usersCount\"\n        [usersTotal]=\"usersTotal\"\n        [luggageCount]=\"luggageCount\"\n        [luggageTotal]=\"luggageTotal\"\n        [timeBadge]=\"timeBadge\"\n      ></siga-status-card>\n    </div>\n\n  </div>\n</div>\n"
+        },
+        {
             "name": "NavbarComponent",
             "id": "component-NavbarComponent-0e6a6e305e275f16e6f5e1810438ae6e2469b1234d6335028ad16e03d7df6278f1be8e0243839ba688982e3fa11b1a49bf10614517685f485a6e1b40108b63b2",
             "file": "src/lib/components/navbar/navbar.component.ts",
@@ -1371,6 +1703,280 @@
             "extends": []
         },
         {
+            "name": "StatusBarComponent",
+            "id": "component-StatusBarComponent-bde4907b5e04486bc26ccbefe4ab6419e384fc2920e80b2e4210f5d5a7a3aa04410e6032c9de613b6148e29353abe959c67a98e6e9e1c39e297a4fa66e366f7c",
+            "file": "src/lib/components/status-bar/status-bar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-status-bar",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./status-bar.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "color",
+                    "defaultValue": "'success'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nCor da barra (baseada nas classes do bootstrap/Siga. ex: 'success', 'warning', 'danger', 'primary')",
+                    "description": "<p>Cor da barra (baseada nas classes do bootstrap/Siga. ex: &#39;success&#39;, &#39;warning&#39;, &#39;danger&#39;, &#39;primary&#39;)</p>\n",
+                    "line": 22,
+                    "type": "\"success\" | \"warning\" | \"danger\" | \"primary\" | \"info\"",
+                    "decorators": []
+                },
+                {
+                    "name": "current",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nValor atual (ex: 142)",
+                    "description": "<p>Valor atual (ex: 142)</p>\n",
+                    "line": 16,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "label",
+                    "defaultValue": "'STATUS'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nRótulo exibido acima (ex: STATUS)",
+                    "description": "<p>Rótulo exibido acima (ex: STATUS)</p>\n",
+                    "line": 13,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "total",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nValor total (ex: 142)",
+                    "description": "<p>Valor total (ex: 142)</p>\n",
+                    "line": 19,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "percentage",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "number",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 24
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "calculatePercentage",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 30,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "modifierKind": [
+                        123
+                    ]
+                },
+                {
+                    "name": "ngOnChanges",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "deprecated": false,
+                    "deprecationMessage": ""
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input, OnChanges } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-status-bar',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './status-bar.component.html',\n  styleUrl: './status-bar.component.scss',\n})\nexport class StatusBarComponent implements OnChanges {\n  /** Rótulo exibido acima (ex: STATUS) */\n  @Input() label: string = 'STATUS';\n  \n  /** Valor atual (ex: 142) */\n  @Input() current: number = 0;\n  \n  /** Valor total (ex: 142) */\n  @Input() total: number = 0;\n  \n  /** Cor da barra (baseada nas classes do bootstrap/Siga. ex: 'success', 'warning', 'danger', 'primary') */\n  @Input() color: 'success' | 'warning' | 'danger' | 'primary' | 'info' = 'success';\n\n  percentage: number = 0;\n\n  ngOnChanges(): void {\n    this.calculatePercentage();\n  }\n\n  private calculatePercentage(): void {\n    if (this.total === 0) {\n      this.percentage = 0;\n      return;\n    }\n    this.percentage = Math.round((this.current / this.total) * 100);\n    if (this.percentage > 100) this.percentage = 100;\n  }\n}\n",
+            "styleUrl": "./status-bar.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "implements": [
+                "OnChanges"
+            ],
+            "templateData": "<div class=\"sg-status-bar\">\n  <div class=\"sg-status-bar__label-row\" *ngIf=\"label\">\n    <span class=\"sg-status-bar__label\">{{ label }}</span>\n  </div>\n  \n  <div class=\"sg-status-bar__values-row\">\n    <span class=\"sg-status-bar__count\">{{ current }}/{{ total }}</span>\n    <span class=\"sg-status-bar__percent\">{{ percentage }}%</span>\n  </div>\n  \n  <div class=\"progress sg-status-bar__progress\">\n    <div \n      class=\"progress-bar\" \n      [ngClass]=\"'bg-' + color\"\n      role=\"progressbar\" \n      [style.width.%]=\"percentage\" \n      [attr.aria-valuenow]=\"percentage\" \n      aria-valuemin=\"0\" \n      aria-valuemax=\"100\">\n    </div>\n  </div>\n</div>\n"
+        },
+        {
+            "name": "StatusCardComponent",
+            "id": "component-StatusCardComponent-36e3aa3630f1146d84b84dd0c746638dc320483c3cbb0cad41530c7e3372346b26a178e548d3ef12c62aa3ca3838793d2b62e7aaca4b7d7fd79480d22abb7832",
+            "file": "src/lib/components/status-card/status-card.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "siga-status-card",
+            "styleUrls": [],
+            "styles": [],
+            "templateUrl": [
+                "./status-card.component.html"
+            ],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "current",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nValor atual de status (ex. 142)",
+                    "description": "<p>Valor atual de status (ex. 142)</p>\n",
+                    "line": 17,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "luggageCount",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nContagem de bagagens",
+                    "description": "<p>Contagem de bagagens</p>\n",
+                    "line": 32,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "luggageTotal",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTotal de bagagens",
+                    "description": "<p>Total de bagagens</p>\n",
+                    "line": 35,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "startTime",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nHorário de início marcado com relógio",
+                    "description": "<p>Horário de início marcado com relógio</p>\n",
+                    "line": 23,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "status",
+                    "defaultValue": "'success'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nDefine o estado geral do componente (verde para iniciado, vermelho para não encontrado)",
+                    "description": "<p>Define o estado geral do componente (verde para iniciado, vermelho para não encontrado)</p>\n",
+                    "line": 14,
+                    "type": "\"success\" | \"danger\"",
+                    "decorators": []
+                },
+                {
+                    "name": "timeBadge",
+                    "defaultValue": "''",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTempo restante ou atraso (ex. \"00:55min\")",
+                    "description": "<p>Tempo restante ou atraso (ex. &quot;00:55min&quot;)</p>\n",
+                    "line": 38,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "total",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nValor total de status (ex. 142)",
+                    "description": "<p>Valor total de status (ex. 142)</p>\n",
+                    "line": 20,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "usersCount",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nContagem de usuários embarcados ou presentes",
+                    "description": "<p>Contagem de usuários embarcados ou presentes</p>\n",
+                    "line": 26,
+                    "type": "number",
+                    "decorators": []
+                },
+                {
+                    "name": "usersTotal",
+                    "defaultValue": "0",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "rawdescription": "\nTotal de usuários",
+                    "description": "<p>Total de usuários</p>\n",
+                    "line": 29,
+                    "type": "number",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                },
+                {
+                    "name": "StatusBarComponent",
+                    "type": "component"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { StatusBarComponent } from '../status-bar/status-bar.component';\n\n@Component({\n  selector: 'siga-status-card',\n  standalone: true,\n  imports: [CommonModule, StatusBarComponent],\n  templateUrl: './status-card.component.html',\n  styleUrl: './status-card.component.scss',\n})\nexport class StatusCardComponent {\n  /** Define o estado geral do componente (verde para iniciado, vermelho para não encontrado) */\n  @Input() status: 'success' | 'danger' = 'success';\n\n  /** Valor atual de status (ex. 142) */\n  @Input() current: number = 0;\n  \n  /** Valor total de status (ex. 142) */\n  @Input() total: number = 0;\n  \n  /** Horário de início marcado com relógio */\n  @Input() startTime: string = '';\n  \n  /** Contagem de usuários embarcados ou presentes */\n  @Input() usersCount: number = 0;\n  \n  /** Total de usuários */\n  @Input() usersTotal: number = 0;\n  \n  /** Contagem de bagagens */\n  @Input() luggageCount: number = 0;\n  \n  /** Total de bagagens */\n  @Input() luggageTotal: number = 0;\n  \n  /** Tempo restante ou atraso (ex. \"00:55min\") */\n  @Input() timeBadge: string = '';\n}\n",
+            "styleUrl": "./status-card.component.scss",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "",
+            "extends": [],
+            "templateData": "<div class=\"sg-status-card\">\n  <!-- StatusBar Component -->\n  <siga-status-bar \n    [current]=\"current\" \n    [total]=\"total\" \n    [color]=\"status\">\n  </siga-status-bar>\n  \n  <!-- Status Information -->\n  <ng-container *ngIf=\"status === 'success'\">\n    <div class=\"sg-status-card__start-info\" *ngIf=\"startTime\">\n      <i class=\"fa fa-clock-o sg-status-card__icon text-muted\"></i>\n      <span class=\"text-muted\">Iniciado: {{ startTime }}</span>\n    </div>\n  </ng-container>\n\n  <ng-container *ngIf=\"status === 'danger'\">\n    <div class=\"sg-status-card__start-info text-danger\">\n      <!-- You can swap the icon if needed, using times-circle for danger -->\n      <i class=\"fa fa-times-circle sg-status-card__icon text-danger\"></i>\n      <span class=\"fw-bold\">PAX não encontrado</span>\n    </div>\n  </ng-container>\n\n  <!-- Pequenos cards (ícones com label) -->\n  <div class=\"sg-status-card__metrics d-flex align-items-center\">\n    \n    <div class=\"sg-status-card__info-item\">\n      <i class=\"fa fa-user-o sg-status-card__icon sg-status-card__icon--metric text-secondary\"></i>\n      <span class=\"sg-status-card__value\">{{ usersCount }}/{{ usersTotal }}</span>\n    </div>\n    \n    <div class=\"sg-status-card__info-item\">\n      <i class=\"far fa-suitcase sg-status-card__icon sg-status-card__icon--metric text-secondary\"></i>\n      <span class=\"sg-status-card__value\">{{ luggageCount }}/{{ luggageTotal }}</span>\n    </div>\n    \n    <div class=\"sg-status-card__info-item sg-status-card__info-item--highlight\">\n      <i class=\"fa fa-clock-o sg-status-card__icon sg-status-card__icon--metric text-secondary\"></i>\n      <span class=\"sg-status-card__time-info\" *ngIf=\"timeBadge\">{{ timeBadge }}</span>\n    </div>\n\n  </div>\n</div>\n"
+        },
+        {
             "name": "TableComponent",
             "id": "component-TableComponent-d7b954e74eabf0b223deb7ccecb73792e05ef136a5e4da6d049fb7f3126d0ebb4201dd8bdf21be0edf9e15de34f1dd828a20f9be854ec2ec3543b4b36089d461",
             "file": "src/lib/components/table/table.component.ts",
@@ -1665,7 +2271,7 @@
         "children": []
     },
     "coverage": {
-        "count": 4,
+        "count": 9,
         "status": "low",
         "files": [
             {
@@ -1811,6 +2417,24 @@
                 "status": "low"
             },
             {
+                "filePath": "src/lib/components/monitoring-row/monitoring-row.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "MonitoringRowComponent",
+                "coveragePercent": 18,
+                "coverageCount": "4/22",
+                "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/monitoring-row/monitoring-row.component.ts",
+                "type": "interface",
+                "linktype": "interface",
+                "name": "HitoItem",
+                "coveragePercent": 0,
+                "coverageCount": "0/7",
+                "status": "low"
+            },
+            {
                 "filePath": "src/lib/components/navbar/navbar.component.ts",
                 "type": "component",
                 "linktype": "component",
@@ -1845,6 +2469,24 @@
                 "coveragePercent": 0,
                 "coverageCount": "0/3",
                 "status": "low"
+            },
+            {
+                "filePath": "src/lib/components/status-bar/status-bar.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StatusBarComponent",
+                "coveragePercent": 50,
+                "coverageCount": "4/8",
+                "status": "medium"
+            },
+            {
+                "filePath": "src/lib/components/status-card/status-card.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StatusCardComponent",
+                "coveragePercent": 90,
+                "coverageCount": "9/10",
+                "status": "very-good"
             },
             {
                 "filePath": "src/lib/components/table/table.component.ts",
