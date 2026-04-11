@@ -13,6 +13,19 @@
     --siga-brand-primary: #12379C;
     --siga-brand-destaque: #56C0D8;
 
+    // Header LATAM (gradiente azul-escuro)
+    --siga-brand-header-top: #1B0088;
+    --siga-brand-header-bottom: #150067;
+
+    // Navbar LATAM (vermelho corporativo)
+    --siga-brand-red: #EF2A5E;
+    --siga-brand-red-mid: #ED1650;
+    --siga-brand-red-active: #A50D36;
+    --siga-brand-red-active-dark: #960C31;
+
+    // RGB helpers para uso em rgba()
+    --siga-blue-700-rgb: 18, 55, 156;
+
     // ----------------------------------------------------------
     // SEMANTIC
     // ----------------------------------------------------------
@@ -31,7 +44,6 @@
     --siga-text-tertiary: #757575;
     --siga-text-disabled: #C2C2C2;
     --siga-text-white: #FFFFFF;
-    --siga-text-black: #000000;
 
     // ----------------------------------------------------------
     // COLOR ALIASES (compatibilidade com componentes)
@@ -102,6 +114,84 @@
     --siga-red-700: #A3241C;
     --siga-red-800: #771A14;
     --siga-red-900: #4C110D;
+
+    // ----------------------------------------------------------
+    // TEAL SCALE (Steal)
+    // ----------------------------------------------------------
+    --siga-teal-100: #E6F9F7;
+    --siga-teal-200: #BDEEE9;
+    --siga-teal-300: #8FE1D9;
+    --siga-teal-400: #5DCFC3;
+    --siga-teal-500: #2BBEB0;
+    --siga-teal-600: #1DA698;
+    --siga-teal-700: #138B7F;
+    --siga-teal-800: #0B6D63;
+    --siga-teal-900: #064E47;
+
+    // ----------------------------------------------------------
+    // INDIGO SCALE (Bridigo)
+    // ----------------------------------------------------------
+    --siga-indigo-100: #EEF0FD;
+    --siga-indigo-200: #D2D8FA;
+    --siga-indigo-300: #ABB3F6;
+    --siga-indigo-400: #818CF1;
+    --siga-indigo-500: #5B68EA;
+    --siga-indigo-600: #3F4DDC;
+    --siga-indigo-700: #2E3BB8;
+    --siga-indigo-800: #202C8E;
+    --siga-indigo-900: #141D63;
+
+    // ----------------------------------------------------------
+    // PURPLE SCALE (Spurple)
+    // ----------------------------------------------------------
+    --siga-purple-100: #F5EEFF;
+    --siga-purple-200: #E4CFFE;
+    --siga-purple-300: #CEADFB;
+    --siga-purple-400: #B688F6;
+    --siga-purple-500: #9D63EF;
+    --siga-purple-600: #8444E3;
+    --siga-purple-700: #6B2CC9;
+    --siga-purple-800: #511A9E;
+    --siga-purple-900: #380D72;
+
+    // ----------------------------------------------------------
+    // PLUM SCALE (Splum)
+    // ----------------------------------------------------------
+    --siga-plum-100: #F8EEF8;
+    --siga-plum-200: #EDCCED;
+    --siga-plum-300: #DEA4DE;
+    --siga-plum-400: #CE7ECE;
+    --siga-plum-500: #BC5CBC; // plum base
+    --siga-plum-600: #A03EA0;
+    --siga-plum-700: #822682;
+    --siga-plum-800: #611261;
+    --siga-plum-900: #420642;
+
+    // ----------------------------------------------------------
+    // PINK SCALE (Spink)
+    // ----------------------------------------------------------
+    --siga-pink-100: #FFF0F5;
+    --siga-pink-200: #FFD6E8;
+    --siga-pink-300: #FFB3D0;
+    --siga-pink-400: #FF8AB8;
+    --siga-pink-500: #FF609E; // pink base
+    --siga-pink-600: #F03E82;
+    --siga-pink-700: #CA2264;
+    --siga-pink-800: #A00F49;
+    --siga-pink-900: #730031;
+
+    // ----------------------------------------------------------
+    // ORANGE SCALE (Sorange)
+    // ----------------------------------------------------------
+    --siga-orange-100: #FFF2E8;
+    --siga-orange-200: #FECBA1;
+    --siga-orange-300: #FEB272;
+    --siga-orange-400: #FD9843;
+    --siga-orange-500: #FD7E14; // orange base
+    --siga-orange-600: #CA6510;
+    --siga-orange-700: #984C0C;
+    --siga-orange-800: #653208;
+    --siga-orange-900: #331904;
 
     // ----------------------------------------------------------
     // YELLOW SCALE
@@ -188,10 +278,10 @@
     // ----------------------------------------------------------
     // PADDING ESCALA (botões, inputs)
     // ----------------------------------------------------------
-    --siga-padding-xs: var(--siga-space-1);   // 4px
-    --siga-padding-sm: var(--siga-space-2);   // 8px
-    --siga-padding-md: var(--siga-space-4);   // 16px
-    --siga-padding-lg: var(--siga-space-6);   // 24px
+    --siga-padding-xs: var(--siga-space-1); // 4px
+    --siga-padding-sm: var(--siga-space-2); // 8px
+    --siga-padding-md: var(--siga-space-4); // 16px
+    --siga-padding-lg: var(--siga-space-6); // 24px
 
     // ----------------------------------------------------------
     // TIPOGRAFIA — ALIASES (compat. com legado)
