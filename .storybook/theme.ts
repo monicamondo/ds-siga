@@ -25,6 +25,6 @@ export default create({
     barBg: '#FFFFFF',
 
     brandTitle: 'SIGA Design System',
-    brandImage: '/siga-logo.png',
+    brandImage: './siga-logo.png',
     brandTarget: '_self',
 });
