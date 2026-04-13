@@ -70,34 +70,18 @@ const pageTemplate = `
       [rightItem]="navbarRight"
     ></siga-navbar>
 
-    <!-- ③ Sub-header de página (título + breadcrumb) -->
+    <!-- ③ Sub-header de página (apenas título) -->
     <div style="
       background: #FFFFFF;
       border-bottom: 1px solid #E0E0E0;
       padding: 14px 24px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       flex-shrink: 0;
     ">
-      <div>
-        <div style="font-size: 10px; color: #9E9E9E; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px">
-          CONECTA+ / Monitoring Flow
-        </div>
-        <h1 style="margin: 0; font-size: 18px; font-weight: 700; color: #0A0A0A">
-          Monitoramento de Conexões
-        </h1>
-      </div>
-      <div style="display: flex; gap: 8px; align-items: center">
-        <span style="font-size: 11px; color: #757575">Última atualização: 09:44</span>
-        <button style="
-          background: none; border: 1px solid #C2C2C2; border-radius: 4px;
-          padding: 4px 10px; font-size: 12px; cursor: pointer; color: #424242;
-          display: flex; align-items: center; gap: 6px;
-        ">
-          <i class="fa-regular fa-rotate-right"></i> Atualizar
-        </button>
-      </div>
+      <h1 style="margin: 0; font-size: 18px; font-weight: 700; color: #0A0A0A">
+        Monitoramento de Conexões
+      </h1>
     </div>
 
     <!-- ④ Miolo da página (área de conteúdo com scroll) -->
