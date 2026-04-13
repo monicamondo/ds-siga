@@ -171,7 +171,7 @@ export class IconsComponent {
 }
 
 const meta: Meta<IconsComponent> = {
-  title: 'SIGA/Foundations/Ícones',
+  title: 'SIGA/Ícones',
   component: IconsComponent,
   parameters: { layout: 'fullscreen' },
 };

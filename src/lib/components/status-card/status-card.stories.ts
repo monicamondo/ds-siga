@@ -4,7 +4,7 @@ import { StatusBarComponent } from '../status-bar/status-bar.component';
 import { moduleMetadata } from '@storybook/angular';
 
 const meta: Meta<StatusCardComponent> = {
-  title: 'Components/Status Card',
+  title: 'Componentes/Status Card',
   component: StatusCardComponent,
   tags: ['autodocs'],
   decorators: [

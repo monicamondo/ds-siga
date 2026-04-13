@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { SpinnerComponent } from './spinner.component';
 
 const meta: Meta<SpinnerComponent> = {
-  title: 'SIGA/Componentes/Spinner',
+  title: 'Componentes/Spinner',
   component: SpinnerComponent,
   tags: ['autodocs'],
   parameters: { layout: 'centered' },

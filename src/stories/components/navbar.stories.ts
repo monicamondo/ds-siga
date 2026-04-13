@@ -72,7 +72,7 @@ export class NavbarStoryComponent {
 }
 
 const meta: Meta<NavbarStoryComponent> = {
-  title: 'SIGA/Componentes/Navbar Sub-header',
+  title: 'Componentes/Navbar Sub-header',
   component: NavbarStoryComponent,
   parameters: {
     layout: 'fullscreen',

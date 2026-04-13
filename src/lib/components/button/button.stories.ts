@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { ButtonComponent } from './button.component';
 
 const meta: Meta<ButtonComponent> = {
-  title: 'SIGA/Componentes/Botão',
+  title: 'Componentes/Botão',
   component: ButtonComponent,
   tags: ['autodocs'],
   decorators: [applicationConfig({ providers: [provideRouter([])] })],

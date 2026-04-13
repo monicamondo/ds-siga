@@ -227,7 +227,7 @@ export class StatusBarStoryComponent {
 }
 
 const meta: Meta<StatusBarStoryComponent> = {
-  title: 'SIGA/Componentes/Status Bar — Hitos',
+  title: 'Componentes/Status Bar — Hitos',
   component: StatusBarStoryComponent,
   parameters: {
     layout: 'padded',

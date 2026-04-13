@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { PaginationComponent } from './pagination.component';
 
 const meta: Meta<PaginationComponent> = {
-  title: 'SIGA/Componentes/Pagination',
+  title: 'Componentes/Pagination',
   component: PaginationComponent,
   tags: ['autodocs'],
   parameters: {

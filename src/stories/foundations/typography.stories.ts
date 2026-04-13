@@ -67,7 +67,7 @@ export class TypographyComponent {
 }
 
 const meta: Meta<TypographyComponent> = {
-  title: 'SIGA/Foundations/Tipografia',
+  title: 'SIGA/Tipografia',
   component: TypographyComponent,
   parameters: { layout: 'fullscreen' },
 };

@@ -16,7 +16,7 @@ import { ModalComponent } from '../lib/components/modal/modal.component';
 import { TableComponent, TableColumn } from '../lib/components/table/table.component';
 
 const meta: Meta = {
-  title: 'SIGA/Páginas/Demonstração de Tela',
+  title: 'Páginas/Demonstração de Tela',
   decorators: [
     applicationConfig({ providers: [provideRouter([])] }),
     moduleMetadata({

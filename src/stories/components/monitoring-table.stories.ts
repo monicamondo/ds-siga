@@ -285,7 +285,7 @@ export class MonitoringTableStoryComponent implements OnInit {
 }
 
 const meta: Meta<MonitoringTableStoryComponent> = {
-  title: 'SIGA/Componentes/Monitoring Table',
+  title: 'Componentes/Monitoring Table',
   component: MonitoringTableStoryComponent,
   parameters: {
     layout: 'fullscreen',

@@ -34,7 +34,7 @@ export class SpacingComponent {
 }
 
 const meta: Meta<SpacingComponent> = {
-  title: 'SIGA/Foundations/Espaçamentos',
+  title: 'SIGA/Espaçamentos',
   component: SpacingComponent,
   parameters: { layout: 'fullscreen' },
 };

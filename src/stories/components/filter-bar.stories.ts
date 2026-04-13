@@ -144,7 +144,7 @@ import { Component } from '@angular/core';
 export class FilterBarStoryComponent {}
 
 const meta: Meta<FilterBarStoryComponent> = {
-  title: 'SIGA/Componentes/Filter Bar',
+  title: 'Componentes/Filter Bar',
   component: FilterBarStoryComponent,
   parameters: {
     layout: 'padded',

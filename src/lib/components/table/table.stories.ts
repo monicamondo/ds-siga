@@ -8,7 +8,7 @@ import { ButtonComponent } from '../button/button.component';
 import { BadgeComponent } from '../badge/badge.component';
 
 const meta: Meta<TableComponent<any>> = {
-  title: 'SIGA/Componentes/Tabela',
+  title: 'Componentes/Tabela',
   component: TableComponent,
   tags: ['autodocs'],
   decorators: [

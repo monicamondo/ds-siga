@@ -5,7 +5,7 @@ import { provideRouter } from '@angular/router';
 import { HeaderComponent } from './header.component';
 
 const meta: Meta<HeaderComponent> = {
-  title: 'SIGA/Componentes/Header',
+  title: 'Componentes/Header',
   component: HeaderComponent,
   tags: ['autodocs'],
   decorators: [

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { CardHitoComponent } from './card-hito.component';
 
 const meta: Meta<CardHitoComponent> = {
-  title: 'Components/Card Hito',
+  title: 'Componentes/Card Hito',
   component: CardHitoComponent,
   tags: ['autodocs'],
   argTypes: {

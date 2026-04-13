@@ -4,7 +4,7 @@ import { provideRouter } from '@angular/router';
 import { BadgeComponent } from './badge.component';
 
 const meta: Meta<BadgeComponent> = {
-  title: 'SIGA/Componentes/Badge',
+  title: 'Componentes/Badge',
   component: BadgeComponent,
   tags: ['autodocs'],
   decorators: [applicationConfig({ providers: [provideRouter([])] })],

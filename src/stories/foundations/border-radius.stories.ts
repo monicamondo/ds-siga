@@ -35,7 +35,7 @@ export class BorderRadiusComponent {
 }
 
 const meta: Meta<BorderRadiusComponent> = {
-  title: 'SIGA/Foundations/Border Radius',
+  title: 'SIGA/Bordas',
   component: BorderRadiusComponent,
   parameters: { layout: 'fullscreen' },
 };

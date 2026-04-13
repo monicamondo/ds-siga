@@ -18,7 +18,7 @@ const sampleHitos: HitoItem[] = [
 ];
 
 const meta: Meta<MonitoringRowComponent> = {
-  title: 'Pages/Monitoring Row',
+  title: 'Componentes/Monitoring Row',
   component: MonitoringRowComponent,
   decorators: [
     moduleMetadata({

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/angular';
 import { StatusBarComponent } from './status-bar.component';
 
 const meta: Meta<StatusBarComponent> = {
-  title: 'Components/Status Bar',
+  title: 'Componentes/Status Bar',
   component: StatusBarComponent,
   tags: ['autodocs'],
   argTypes: {

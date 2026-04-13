@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { NavbarComponent } from './navbar.component';
 
 const meta: Meta<NavbarComponent> = {
-  title: 'SIGA/Componentes/Navbar Sub-header',
+  title: 'Componentes/Navbar Sub-header',
   component: NavbarComponent,
   tags: ['autodocs'],
   parameters: {

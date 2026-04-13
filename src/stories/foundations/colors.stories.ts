@@ -170,7 +170,7 @@ export class ColorsComponent {
 }
 
 const meta: Meta<ColorsComponent> = {
-  title: 'SIGA/Foundations/Cores',
+  title: 'SIGA/Cores',
   component: ColorsComponent,
   parameters: { layout: 'fullscreen' },
 };

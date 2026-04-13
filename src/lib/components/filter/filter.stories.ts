@@ -5,7 +5,7 @@ import { FilterComponent } from './filter.component';
 import { InputComponent } from '../input/input.component';
 
 const meta: Meta<FilterComponent> = {
-  title: 'SIGA/Componentes/Filtro',
+  title: 'Componentes/Filtro',
   component: FilterComponent,
   tags: ['autodocs'],
   decorators: [
