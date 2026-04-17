@@ -14,8 +14,8 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
-  webpackFinal: async (config: any) => {
-    if (process.env['NODE_ENV'] === 'production') {
+  webpackFinal: async (config: any, { configType }: { configType: string }) => {
+    if (configType === 'PRODUCTION') {
       config.output = config.output ?? {};
       config.output.publicPath = '/ds-siga/';
     }
