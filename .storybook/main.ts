@@ -17,7 +17,7 @@ const config: StorybookConfig = {
   webpackFinal: async (config: any, { configType }: { configType: string }) => {
     if (configType === 'PRODUCTION') {
       config.output = config.output ?? {};
-      config.output.publicPath = '/ds-siga/';
+      config.output.publicPath = '';
     }
     return config;
   },
