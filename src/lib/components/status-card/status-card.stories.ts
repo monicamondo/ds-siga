@@ -1,16 +1,16 @@
 import { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig, moduleMetadata } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { StatusCardComponent } from './status-card.component';
 import { StatusBarComponent } from '../status-bar/status-bar.component';
-import { moduleMetadata } from '@storybook/angular';
 
 const meta: Meta<StatusCardComponent> = {
   title: 'Componentes/Status Card',
   component: StatusCardComponent,
   tags: ['autodocs'],
   decorators: [
-    moduleMetadata({
-      imports: [StatusBarComponent],
-    }),
+    applicationConfig({ providers: [provideRouter([])] }),
+    moduleMetadata({ imports: [StatusBarComponent] }),
   ],
   argTypes: {
     status: {

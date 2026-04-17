@@ -1,5 +1,7 @@
 // src/stories/foundations/typography.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 
@@ -67,6 +69,7 @@ export class TypographyComponent {
 }
 
 const meta: Meta<TypographyComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'SIGA/Tipografia',
   component: TypographyComponent,
   parameters: { layout: 'fullscreen' },

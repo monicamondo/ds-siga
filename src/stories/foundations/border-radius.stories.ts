@@ -1,5 +1,7 @@
 // src/stories/foundations/border-radius.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 
@@ -35,6 +37,7 @@ export class BorderRadiusComponent {
 }
 
 const meta: Meta<BorderRadiusComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'SIGA/Bordas',
   component: BorderRadiusComponent,
   parameters: { layout: 'fullscreen' },

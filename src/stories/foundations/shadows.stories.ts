@@ -1,5 +1,7 @@
 // src/stories/foundations/shadows.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 
@@ -78,6 +80,7 @@ export class ShadowsComponent {
 }
 
 const meta: Meta<ShadowsComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'SIGA/Sombras',
   component: ShadowsComponent,
   parameters: { layout: 'fullscreen', backgrounds: { default: 'siga' } },

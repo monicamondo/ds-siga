@@ -1,10 +1,13 @@
 import { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { StatusBarComponent } from './status-bar.component';
 
 const meta: Meta<StatusBarComponent> = {
   title: 'Componentes/Status Bar',
   component: StatusBarComponent,
   tags: ['autodocs'],
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   argTypes: {
     color: {
       control: 'select',

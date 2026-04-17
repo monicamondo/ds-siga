@@ -1,5 +1,7 @@
 // src/stories/components/filter-bar.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 
 @Component({
@@ -144,6 +146,7 @@ import { Component } from '@angular/core';
 export class FilterBarStoryComponent {}
 
 const meta: Meta<FilterBarStoryComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'Componentes/Filter Bar',
   component: FilterBarStoryComponent,
   parameters: {

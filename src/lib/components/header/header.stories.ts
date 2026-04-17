@@ -22,7 +22,7 @@ type Story = StoryObj<HeaderComponent>;
 export const DesktopCompleto: Story = {
   name: 'Visual Padrão (Conforme Referência)',
   args: {
-    logoUrl: '/latam-logo.png',
+    logoUrl: 'latam-logo.png',
     user: { name: 'Jhon Doe', provider: 'LATAM' },
     selectedModule: { id: 'conecta', label: 'CONECTA+' },
     selectedAirport: { code: 'GRU' },

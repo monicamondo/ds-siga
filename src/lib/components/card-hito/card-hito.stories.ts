@@ -1,10 +1,13 @@
 import { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { CardHitoComponent } from './card-hito.component';
 
 const meta: Meta<CardHitoComponent> = {
   title: 'Componentes/Card Hito',
   component: CardHitoComponent,
   tags: ['autodocs'],
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   argTypes: {
     variant: {
       control: 'select',

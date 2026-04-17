@@ -1,5 +1,7 @@
 // src/stories/components/status-bar.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { NgFor, NgClass, NgIf } from '@angular/common';
 
@@ -227,6 +229,7 @@ export class StatusBarStoryComponent {
 }
 
 const meta: Meta<StatusBarStoryComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'Componentes/Status Bar — Hitos',
   component: StatusBarStoryComponent,
   parameters: {

@@ -1,5 +1,7 @@
 // src/stories/foundations/icons.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 
@@ -171,6 +173,7 @@ export class IconsComponent {
 }
 
 const meta: Meta<IconsComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'SIGA/Ícones',
   component: IconsComponent,
   parameters: { layout: 'fullscreen' },

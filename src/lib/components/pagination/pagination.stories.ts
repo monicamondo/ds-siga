@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { PaginationComponent } from './pagination.component';
 
 const meta: Meta<PaginationComponent> = {
   title: 'Componentes/Pagination',
   component: PaginationComponent,
   tags: ['autodocs'],
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   parameters: {
     layout: 'padded',
     docs: {

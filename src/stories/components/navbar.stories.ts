@@ -1,5 +1,7 @@
 // src/stories/components/navbar.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component, Input } from '@angular/core';
 import { NgFor, NgClass } from '@angular/common';
 
@@ -72,7 +74,8 @@ export class NavbarStoryComponent {
 }
 
 const meta: Meta<NavbarStoryComponent> = {
-  title: 'Componentes/Navbar Sub-header',
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
+  title: 'Protótipos/Navbar Sub-header',
   component: NavbarStoryComponent,
   parameters: {
     layout: 'fullscreen',

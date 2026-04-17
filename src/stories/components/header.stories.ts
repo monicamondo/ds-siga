@@ -81,7 +81,7 @@ import { Component } from '@angular/core';
 export class HeaderStoryComponent {}
 
 const meta: Meta<HeaderStoryComponent> = {
-  title: 'Componentes/Header',
+  title: 'Protótipos/Header',
   component: HeaderStoryComponent,
   parameters: {
     layout: 'fullscreen',

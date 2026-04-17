@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -6,6 +8,7 @@ const meta: Meta<NavbarComponent> = {
   title: 'Componentes/Navbar Sub-header',
   component: NavbarComponent,
   tags: ['autodocs'],
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   parameters: {
     layout: 'fullscreen',
   },
@@ -30,11 +33,12 @@ export const Padrao: Story = {
       onItemClick: (e: any) => console.log('Item Clicado', e),
     },
     template: `
-      <siga-navbar 
-        [items]="items" 
-        [rightItem]="rightItem" 
+      <siga-navbar
+        [items]="items"
+        [rightItem]="rightItem"
         (itemClick)="onItemClick($event)">
       </siga-navbar>
     `,
+    moduleMetadata: { imports: [NavbarComponent] },
   }),
 };

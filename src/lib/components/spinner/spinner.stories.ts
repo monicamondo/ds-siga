@@ -1,10 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { SpinnerComponent } from './spinner.component';
 
 const meta: Meta<SpinnerComponent> = {
   title: 'Componentes/Spinner',
   component: SpinnerComponent,
   tags: ['autodocs'],
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   parameters: { layout: 'centered' },
   argTypes: {
     visible: { control: 'boolean', description: 'Exibe o spinner' },

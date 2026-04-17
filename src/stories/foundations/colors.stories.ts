@@ -1,5 +1,7 @@
 // src/stories/foundations/colors.stories.ts
 import type { Meta, StoryObj } from '@storybook/angular';
+import { applicationConfig } from '@storybook/angular';
+import { provideRouter } from '@angular/router';
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 
@@ -170,6 +172,7 @@ export class ColorsComponent {
 }
 
 const meta: Meta<ColorsComponent> = {
+  decorators: [applicationConfig({ providers: [provideRouter([])] })],
   title: 'SIGA/Cores',
   component: ColorsComponent,
   parameters: { layout: 'fullscreen' },
