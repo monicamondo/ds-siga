@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/angular';
+import type { Configuration } from 'webpack';
 
 const config: StorybookConfig = {
   stories: [
@@ -14,6 +15,13 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
+  webpackFinal: async (config: Configuration) => {
+    if (process.env['NODE_ENV'] === 'production') {
+      config.output = config.output ?? {};
+      config.output.publicPath = '/ds-siga/';
+    }
+    return config;
+  },
 };
 
 export default config;
