@@ -38,7 +38,7 @@ export class BorderRadiusComponent {
 
 const meta: Meta<BorderRadiusComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Bordas',
+  title: 'Foundations/Bordas',
   component: BorderRadiusComponent,
   parameters: { layout: 'fullscreen' },
 };

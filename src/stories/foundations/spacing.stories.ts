@@ -37,7 +37,7 @@ export class SpacingComponent {
 
 const meta: Meta<SpacingComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Espaçamentos',
+  title: 'Foundations/Espaçamentos',
   component: SpacingComponent,
   parameters: { layout: 'fullscreen' },
 };

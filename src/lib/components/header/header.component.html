@@ -5,10 +5,26 @@
       <img [src]="logoUrl" alt="LATAM Airlines" class="brand-logo" />
     </div>
 
-    <!-- Modules (CONECTA+) -->
-    <div class="header-item selectable" *ngIf="selectedModule">
-      <span class="value">{{ selectedModule.label }}</span>
-      <i class="fa-solid fa-caret-down caret-icon"></i>
+    <!-- Modules Dropdown -->
+    <div class="header-item selectable module-dropdown" *ngIf="selectedModule" (click)="toggleModuleMenu($event)">
+      <div class="module-info-dual">
+        <div class="dual-line">
+          <span class="top-line">{{ selectedModule?.labelLine1 || selectedModule?.label }}</span>
+          <span class="bottom-line bold" *ngIf="selectedModule?.labelLine2">{{ selectedModule?.labelLine2 }}</span>
+        </div>
+        <i class="fa-solid fa-caret-down caret-icon"></i>
+      </div>
+
+      <!-- Dropdown Menu -->
+      <div class="dropdown-menu-siga" [class.show]="isModuleMenuOpen">
+        <div 
+          class="dropdown-item-siga" 
+          *ngFor="let mod of availableModules"
+          (click)="onModuleClick(mod)">
+          <i [class]="mod.icon" *ngIf="mod.icon" class="mod-icon"></i>
+          <span class="mod-label">{{ mod.label }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- Airport (GRU) -->
@@ -38,20 +54,38 @@
 
   <div class="header-right">
     <!-- Language -->
-    <div class="header-item selectable">
-      <i class="fa-solid fa-globe action-icon"></i>
+    <div class="header-item selectable lang-dropdown" (click)="toggleLanguageMenu($event)">
+      <i class="fas fa-globe-americas action-icon"></i>
       <span class="value">{{ currentLanguage }}</span>
       <i class="fa-solid fa-caret-down caret-icon"></i>
+
+      <div class="dropdown-menu-siga dropdown-right" [class.show]="isLanguageMenuOpen">
+        <div 
+          class="dropdown-item-siga" 
+          *ngFor="let lang of availableLanguages"
+          (click)="onLanguageClick(lang)">
+          <span class="mod-label">{{ lang.code }} - {{ lang.label }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- User -->
-    <div class="header-item selectable user-dropdown" *ngIf="user">
+    <div class="header-item selectable user-dropdown" *ngIf="user" (click)="toggleUserMenu($event)">
       <i class="fa-solid fa-user action-icon user-icon"></i>
       <div class="dual-line user-details">
         <span class="top-line bold">{{ user.name }}</span>
         <span class="bottom-line" *ngIf="user.provider">{{ user.provider }}</span>
       </div>
       <i class="fa-solid fa-caret-down caret-icon"></i>
+
+      <div class="dropdown-menu-siga dropdown-right" [class.show]="isUserMenuOpen">
+        <ng-container *ngFor="let item of userMenuItems">
+          <div class="dropdown-divider" *ngIf="item.divider"></div>
+          <div class="dropdown-item-siga" (click)="onUserAction(item)">
+            <span class="mod-label">{{ item.label }}</span>
+          </div>
+        </ng-container>
+      </div>
     </div>
   </div>
 </header>

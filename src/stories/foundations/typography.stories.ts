@@ -70,7 +70,7 @@ export class TypographyComponent {
 
 const meta: Meta<TypographyComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Tipografia',
+  title: 'Foundations/Tipografia',
   component: TypographyComponent,
   parameters: { layout: 'fullscreen' },
 };

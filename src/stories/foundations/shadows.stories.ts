@@ -81,7 +81,7 @@ export class ShadowsComponent {
 
 const meta: Meta<ShadowsComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Sombras',
+  title: 'Foundations/Sombras',
   component: ShadowsComponent,
   parameters: { layout: 'fullscreen', backgrounds: { default: 'siga' } },
 };

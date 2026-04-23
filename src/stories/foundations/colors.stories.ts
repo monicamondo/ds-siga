@@ -173,7 +173,7 @@ export class ColorsComponent {
 
 const meta: Meta<ColorsComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Cores',
+  title: 'Foundations/Cores',
   component: ColorsComponent,
   parameters: { layout: 'fullscreen' },
 };

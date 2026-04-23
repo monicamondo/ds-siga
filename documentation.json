@@ -671,7 +671,7 @@
         },
         {
             "name": "HeaderComponent",
-            "id": "component-HeaderComponent-93d935347f86c5379b818cb66ef0b64617352bd56747578fae0ab02878343af533d4c525a0229149d2dbba92f296268dffcf94fe8dcd7b533c33341f4e5a87d4",
+            "id": "component-HeaderComponent-84d73cc1aa5bec4ea803d1caa5c6d530afdccc338e175bbfad5eb817829d9b6b7f8207bc3e04d69f735f8ca164cc33bf05d49eecce38bff95f87b2bbecabbb72",
             "file": "src/lib/components/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -688,11 +688,20 @@
             "hostDirectives": [],
             "inputsClass": [
                 {
+                    "name": "availableModules",
+                    "defaultValue": "[]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 14,
+                    "type": "Array<literal type>",
+                    "decorators": []
+                },
+                {
                     "name": "currentDate",
                     "defaultValue": "'16/09/2025'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 17,
+                    "line": 18,
                     "type": "string",
                     "decorators": []
                 },
@@ -701,7 +710,7 @@
                     "defaultValue": "'JUEVES'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 16,
+                    "line": 17,
                     "type": "string",
                     "decorators": []
                 },
@@ -710,7 +719,7 @@
                     "defaultValue": "'ES'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 22,
+                    "line": 23,
                     "type": "string",
                     "decorators": []
                 },
@@ -719,16 +728,16 @@
                     "defaultValue": "'09:00'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 19,
+                    "line": 20,
                     "type": "string",
                     "decorators": []
                 },
                 {
                     "name": "logoUrl",
-                    "defaultValue": "'/latam-logo.png'",
+                    "defaultValue": "'latam-logo.png'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 24,
+                    "line": 25,
                     "type": "string",
                     "decorators": []
                 },
@@ -737,7 +746,7 @@
                     "defaultValue": "null",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 14,
+                    "line": 15,
                     "type": "literal type | null",
                     "decorators": []
                 },
@@ -764,27 +773,320 @@
                     "defaultValue": "'12:00'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 20,
+                    "line": 21,
                     "type": "string",
                     "decorators": []
                 }
             ],
             "outputsClass": [
                 {
+                    "name": "languageSelected",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 29,
+                    "type": "EventEmitter"
+                },
+                {
                     "name": "logout",
                     "defaultValue": "new EventEmitter<void>()",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "line": 26,
+                    "line": 27,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "moduleSelected",
+                    "defaultValue": "new EventEmitter<any>()",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 28,
                     "type": "EventEmitter"
                 }
             ],
-            "propertiesClass": [],
-            "methodsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "availableLanguages",
+                    "defaultValue": "[\n    { code: 'PT', label: 'Português' },\n    { code: 'EN', label: 'English' },\n    { code: 'ES', label: 'Español' }\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 35
+                },
+                {
+                    "name": "isLanguageMenuOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 32
+                },
+                {
+                    "name": "isModuleMenuOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 31
+                },
+                {
+                    "name": "isUserMenuOpen",
+                    "defaultValue": "false",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "unknown",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 33
+                },
+                {
+                    "name": "userMenuItems",
+                    "defaultValue": "[\n    { label: 'Trocar Senha', action: 'password' },\n    { label: 'Minha Conta', action: 'account' },\n    { label: 'Sair', action: 'logout', divider: true }\n  ]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 41
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "closeMenus",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 89,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "decorators": [
+                        {
+                            "name": "HostListener",
+                            "stringifiedArguments": "'document:click'"
+                        }
+                    ],
+                    "modifierKind": [
+                        171
+                    ]
+                },
+                {
+                    "name": "onLanguageClick",
+                    "args": [
+                        {
+                            "name": "lang",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 74,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "lang",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onModuleClick",
+                    "args": [
+                        {
+                            "name": "module",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 68,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "module",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "onUserAction",
+                    "args": [
+                        {
+                            "name": "item",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 80,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "item",
+                            "type": "any",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleLanguageMenu",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 54,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleModuleMenu",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 47,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "toggleUserMenu",
+                    "args": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 61,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "event",
+                            "type": "Event",
+                            "optional": false,
+                            "dotDotDotToken": false,
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
             "deprecated": false,
             "deprecationMessage": "",
             "hostBindings": [],
-            "hostListeners": [],
+            "hostListeners": [
+                {
+                    "name": "document:click",
+                    "args": [],
+                    "argsDecorator": [],
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 89
+                }
+            ],
             "standalone": true,
             "imports": [
                 {
@@ -795,13 +1097,13 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-header',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './header.component.html',\n  styleUrl: './header.component.scss',\n})\nexport class HeaderComponent {\n  @Input() user: { name: string; provider?: string } | null = null;\n  @Input() selectedModule: { id: string; label: string } | null = null;\n  @Input() selectedAirport: { code: string; country?: string } | null = null;\n  \n  @Input() currentDayOfWeek: string = 'JUEVES';\n  @Input() currentDate: string = '16/09/2025';\n  \n  @Input() currentTime: string = '09:00';\n  @Input() utcTime: string = '12:00';\n\n  @Input() currentLanguage: string = 'ES';\n  \n  @Input() logoUrl: string = '/latam-logo.png'; // Uses public mapped path in Storybook\n\n  @Output() logout = new EventEmitter<void>();\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';\nimport { CommonModule } from '@angular/common';\n\n@Component({\n  selector: 'siga-header',\n  standalone: true,\n  imports: [CommonModule],\n  templateUrl: './header.component.html',\n  styleUrl: './header.component.scss',\n})\nexport class HeaderComponent {\n  @Input() user: { name: string; provider?: string } | null = null;\n  @Input() selectedModule: { id: string; label: string; labelLine1?: string; labelLine2?: string; icon?: string } | null = null;\n  @Input() availableModules: Array<{ id: string; label: string; labelLine1?: string; labelLine2?: string; icon?: string }> = [];\n  @Input() selectedAirport: { code: string; country?: string } | null = null;\n  \n  @Input() currentDayOfWeek: string = 'JUEVES';\n  @Input() currentDate: string = '16/09/2025';\n  \n  @Input() currentTime: string = '09:00';\n  @Input() utcTime: string = '12:00';\n\n  @Input() currentLanguage: string = 'ES';\n  \n  @Input() logoUrl: string = 'latam-logo.png'; \n\n  @Output() logout = new EventEmitter<void>();\n  @Output() moduleSelected = new EventEmitter<any>();\n  @Output() languageSelected = new EventEmitter<string>();\n\n  isModuleMenuOpen = false;\n  isLanguageMenuOpen = false;\n  isUserMenuOpen = false;\n\n  availableLanguages = [\n    { code: 'PT', label: 'Português' },\n    { code: 'EN', label: 'English' },\n    { code: 'ES', label: 'Español' }\n  ];\n\n  userMenuItems = [\n    { label: 'Trocar Senha', action: 'password' },\n    { label: 'Minha Conta', action: 'account' },\n    { label: 'Sair', action: 'logout', divider: true }\n  ];\n\n  toggleModuleMenu(event: Event) {\n    event.stopPropagation();\n    const currentState = this.isModuleMenuOpen;\n    this.closeMenus();\n    this.isModuleMenuOpen = !currentState;\n  }\n\n  toggleLanguageMenu(event: Event) {\n    event.stopPropagation();\n    const currentState = this.isLanguageMenuOpen;\n    this.closeMenus();\n    this.isLanguageMenuOpen = !currentState;\n  }\n\n  toggleUserMenu(event: Event) {\n    event.stopPropagation();\n    const currentState = this.isUserMenuOpen;\n    this.closeMenus();\n    this.isUserMenuOpen = !currentState;\n  }\n\n  onModuleClick(module: any) {\n    this.selectedModule = module;\n    this.closeMenus();\n    this.moduleSelected.emit(module);\n  }\n\n  onLanguageClick(lang: any) {\n    this.currentLanguage = lang.code;\n    this.closeMenus();\n    this.languageSelected.emit(lang.code);\n  }\n\n  onUserAction(item: any) {\n    this.closeMenus();\n    if (item.action === 'logout') {\n      this.logout.emit();\n    }\n  }\n\n  // Close dropdown when clicking outside\n  @HostListener('document:click')\n  closeMenus() {\n    this.isModuleMenuOpen = false;\n    this.isLanguageMenuOpen = false;\n    this.isUserMenuOpen = false;\n  }\n}\n",
             "styleUrl": "./header.component.scss",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
             "extends": [],
-            "templateData": "<header class=\"siga-header\">\n  <div class=\"header-left\">\n    <!-- Logo -->\n    <div class=\"brand\">\n      <img [src]=\"logoUrl\" alt=\"LATAM Airlines\" class=\"brand-logo\" />\n    </div>\n\n    <!-- Modules (CONECTA+) -->\n    <div class=\"header-item selectable\" *ngIf=\"selectedModule\">\n      <span class=\"value\">{{ selectedModule.label }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- Airport (GRU) -->\n    <div class=\"header-item selectable\" *ngIf=\"selectedAirport\">\n      <span class=\"value display-lg\">{{ selectedAirport.code }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- Date  -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line bold\">{{ currentDayOfWeek }}</span>\n      <span class=\"bottom-line\">{{ currentDate }}</span>\n    </div>\n\n    <!-- Local Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ currentTime }}</span>\n      <span class=\"bottom-line\">Local Time</span>\n    </div>\n\n    <!-- UTC Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ utcTime }}</span>\n      <span class=\"bottom-line\">UTC Time</span>\n    </div>\n  </div>\n\n  <div class=\"header-right\">\n    <!-- Language -->\n    <div class=\"header-item selectable\">\n      <i class=\"fa-solid fa-globe action-icon\"></i>\n      <span class=\"value\">{{ currentLanguage }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- User -->\n    <div class=\"header-item selectable user-dropdown\" *ngIf=\"user\">\n      <i class=\"fa-solid fa-user action-icon user-icon\"></i>\n      <div class=\"dual-line user-details\">\n        <span class=\"top-line bold\">{{ user.name }}</span>\n        <span class=\"bottom-line\" *ngIf=\"user.provider\">{{ user.provider }}</span>\n      </div>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n  </div>\n</header>\n"
+            "templateData": "<header class=\"siga-header\">\n  <div class=\"header-left\">\n    <!-- Logo -->\n    <div class=\"brand\">\n      <img [src]=\"logoUrl\" alt=\"LATAM Airlines\" class=\"brand-logo\" />\n    </div>\n\n    <!-- Modules Dropdown -->\n    <div class=\"header-item selectable module-dropdown\" *ngIf=\"selectedModule\" (click)=\"toggleModuleMenu($event)\">\n      <div class=\"module-info-dual\">\n        <div class=\"dual-line\">\n          <span class=\"top-line\">{{ selectedModule?.labelLine1 || selectedModule?.label }}</span>\n          <span class=\"bottom-line bold\" *ngIf=\"selectedModule?.labelLine2\">{{ selectedModule?.labelLine2 }}</span>\n        </div>\n        <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n      </div>\n\n      <!-- Dropdown Menu -->\n      <div class=\"dropdown-menu-siga\" [class.show]=\"isModuleMenuOpen\">\n        <div \n          class=\"dropdown-item-siga\" \n          *ngFor=\"let mod of availableModules\"\n          (click)=\"onModuleClick(mod)\">\n          <i [class]=\"mod.icon\" *ngIf=\"mod.icon\" class=\"mod-icon\"></i>\n          <span class=\"mod-label\">{{ mod.label }}</span>\n        </div>\n      </div>\n    </div>\n\n    <!-- Airport (GRU) -->\n    <div class=\"header-item selectable\" *ngIf=\"selectedAirport\">\n      <span class=\"value display-lg\">{{ selectedAirport.code }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n    </div>\n\n    <!-- Date  -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line bold\">{{ currentDayOfWeek }}</span>\n      <span class=\"bottom-line\">{{ currentDate }}</span>\n    </div>\n\n    <!-- Local Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ currentTime }}</span>\n      <span class=\"bottom-line\">Local Time</span>\n    </div>\n\n    <!-- UTC Time -->\n    <div class=\"header-item dual-line\">\n      <span class=\"top-line display-md\">{{ utcTime }}</span>\n      <span class=\"bottom-line\">UTC Time</span>\n    </div>\n  </div>\n\n  <div class=\"header-right\">\n    <!-- Language -->\n    <div class=\"header-item selectable lang-dropdown\" (click)=\"toggleLanguageMenu($event)\">\n      <i class=\"fas fa-globe-americas action-icon\"></i>\n      <span class=\"value\">{{ currentLanguage }}</span>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n\n      <div class=\"dropdown-menu-siga dropdown-right\" [class.show]=\"isLanguageMenuOpen\">\n        <div \n          class=\"dropdown-item-siga\" \n          *ngFor=\"let lang of availableLanguages\"\n          (click)=\"onLanguageClick(lang)\">\n          <span class=\"mod-label\">{{ lang.code }} - {{ lang.label }}</span>\n        </div>\n      </div>\n    </div>\n\n    <!-- User -->\n    <div class=\"header-item selectable user-dropdown\" *ngIf=\"user\" (click)=\"toggleUserMenu($event)\">\n      <i class=\"fa-solid fa-user action-icon user-icon\"></i>\n      <div class=\"dual-line user-details\">\n        <span class=\"top-line bold\">{{ user.name }}</span>\n        <span class=\"bottom-line\" *ngIf=\"user.provider\">{{ user.provider }}</span>\n      </div>\n      <i class=\"fa-solid fa-caret-down caret-icon\"></i>\n\n      <div class=\"dropdown-menu-siga dropdown-right\" [class.show]=\"isUserMenuOpen\">\n        <ng-container *ngFor=\"let item of userMenuItems\">\n          <div class=\"dropdown-divider\" *ngIf=\"item.divider\"></div>\n          <div class=\"dropdown-item-siga\" (click)=\"onUserAction(item)\">\n            <span class=\"mod-label\">{{ item.label }}</span>\n          </div>\n        </ng-container>\n      </div>\n    </div>\n  </div>\n</header>\n"
         },
         {
             "name": "InputComponent",
@@ -2375,7 +2677,7 @@
                 "linktype": "component",
                 "name": "HeaderComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/11",
+                "coverageCount": "0/27",
                 "status": "low"
             },
             {

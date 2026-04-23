@@ -119,6 +119,7 @@ import { NgFor } from '@angular/common';
       ÍCONES CUSTOMIZADOS DO SIGA (fa-kit)
       Requerem o kit 61e3ea41a6 carregado via preview-head.html
       ─────────────────────────────────────────────────────────
+      -->
 
       <h2>Kit customizado SIGA</h2>
       <p class="sub">Ícones exclusivos do produto — presentes apenas no kit da conta LATAM/JExperts.</p>
@@ -140,7 +141,6 @@ import { NgFor } from '@angular/common';
           <span class="kit-label">fa-kit<br>fa-park-position-siga</span>
         </div>
       </div>
-      -->
 
     </div>
   `,
@@ -174,7 +174,7 @@ export class IconsComponent {
 
 const meta: Meta<IconsComponent> = {
   decorators: [applicationConfig({ providers: [provideRouter([])] })],
-  title: 'SIGA/Ícones',
+  title: 'Foundations/Ícones',
   component: IconsComponent,
   parameters: { layout: 'fullscreen' },
 };
