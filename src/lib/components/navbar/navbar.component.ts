@@ -22,9 +22,11 @@ export class NavbarComponent {
   @Output() itemClick = new EventEmitter<NavbarItem>();
 
   onItemClick(item: NavbarItem) {
-    // Only emit if not already active to prevent redundant calls
-    if (!item.active) {
-      this.itemClick.emit(item);
-    }
+    // Desativa todos os itens antes de ativar o clicado
+    this.items.forEach(i => i.active = false);
+    if (this.rightItem) this.rightItem.active = false;
+
+    item.active = true;
+    this.itemClick.emit(item);
   }
 }

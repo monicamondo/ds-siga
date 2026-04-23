@@ -3,6 +3,7 @@ import { applicationConfig, componentWrapperDecorator } from '@storybook/angular
 import { provideRouter } from '@angular/router';
 
 import { HeaderComponent } from './header.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 const meta: Meta<HeaderComponent> = {
   title: 'Componentes/Header',
@@ -48,4 +49,40 @@ export const DesktopCompleto: Story = {
     utcTime: '19:13',
     currentLanguage: 'PT',
   },
+};
+
+export const HeaderComNavbar: Story = {
+  name: 'Header + Navbar (Ex: Cargo Inspect)',
+  args: {
+    ...DesktopCompleto.args,
+    selectedModule: { id: 'cargo', label: 'CARGO INSPECT', labelLine1: 'CARGO', labelLine2: 'INSPECT', icon: 'fa-kit fa-cargo-inspect' },
+  },
+  render: (args) => ({
+    props: args,
+    template: `
+      <div style="display: flex; flex-direction: column;">
+        <siga-header
+          [logoUrl]="logoUrl"
+          [user]="user"
+          [selectedModule]="selectedModule"
+          [availableModules]="availableModules"
+          [selectedAirport]="selectedAirport"
+          [currentDayOfWeek]="currentDayOfWeek"
+          [currentDate]="currentDate"
+          [currentTime]="currentTime"
+          [utcTime]="utcTime"
+          [currentLanguage]="currentLanguage">
+        </siga-header>
+        <siga-navbar
+          [items]="[
+            { id: 'inspecao', label: 'Inspeção de porão', icon: 'fa-solid fa-barcode', active: true },
+            { id: 'apk', label: 'APK Download', icon: 'fa-solid fa-download' }
+          ]">
+        </siga-navbar>
+      </div>
+    `,
+    moduleMetadata: {
+      imports: [HeaderComponent, NavbarComponent]
+    }
+  })
 };
