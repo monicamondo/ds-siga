@@ -9,8 +9,8 @@
     <div class="header-item selectable module-dropdown" *ngIf="selectedModule" (click)="toggleModuleMenu($event)">
       <div class="module-info-dual">
         <div class="dual-line">
-          <span class="top-line">{{ selectedModule?.labelLine1 || selectedModule?.label }}</span>
-          <span class="bottom-line bold" *ngIf="selectedModule?.labelLine2">{{ selectedModule?.labelLine2 }}</span>
+          <span class="top-line">{{ selectedModule.labelLine1 || selectedModule.label }}</span>
+          <span class="bottom-line bold" *ngIf="selectedModule.labelLine2">{{ selectedModule.labelLine2 }}</span>
         </div>
         <i class="fa-solid fa-caret-down caret-icon"></i>
       </div>

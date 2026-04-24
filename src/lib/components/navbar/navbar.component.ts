@@ -8,6 +8,7 @@ export interface NavbarItem {
   active?: boolean;
 }
 
+
 @Component({
   selector: 'siga-navbar',
   standalone: true,
