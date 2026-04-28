@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 export interface NavbarItem {
   id: string;
   label: string;
+  labelLine2?: string;
   icon: string;
   active?: boolean;
 }

@@ -1,0 +1,58 @@
+<nav class="siga-navbar">
+
+  <ul class="nav-left">
+    <li 
+      class="nav-item" 
+      *ngFor="let item of items" 
+      [class.active]="item.active"
+      [class.has-submenu]="item.children && item.children.length > 0"
+      [class.submenu-open]="activeSubmenu === item.id"
+      (mouseenter)="onMouseEnter(item)"
+      (mouseleave)="onMouseLeave()"
+      (click)="onItemClick(item, $event)">
+
+      <a class="nav-link">
+        <div class="nav-link-content">
+          <i [class]="item.icon" [class.icon-aircraft]="item.id === 'aeronaves'"></i>
+          <div class="label-container">
+            <span>{{ item.label }}</span>
+            <span *ngIf="item.labelLine2">{{ item.labelLine2 }}</span>
+          </div>
+        </div>
+        <i class="fa-solid fa-chevron-down submenu-indicator" *ngIf="item.children && item.children.length > 0"></i>
+      </a>
+
+
+      <!-- Submenu -->
+      <ul class="submenu" *ngIf="item.children && item.children.length > 0 && activeSubmenu === item.id">
+        <li 
+          class="submenu-item" 
+          *ngFor="let subItem of item.children"
+          (click)="onSubItemClick(item, subItem, $event)">
+          <a class="submenu-link">
+            <i [class]="subItem.icon"></i>
+            <span>{{ subItem.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  
+  <ul class="nav-right" *ngIf="rightItem">
+    <li 
+      class="nav-item right-item" 
+      [class.active]="rightItem.active" 
+      (click)="onItemClick(rightItem)">
+      <a class="nav-link">
+        <div class="nav-link-content">
+          <i [class]="rightItem.icon"></i>
+          <div class="label-container">
+            <span>{{ rightItem.label }}</span>
+            <span *ngIf="rightItem.labelLine2">{{ rightItem.labelLine2 }}</span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+
+</nav>

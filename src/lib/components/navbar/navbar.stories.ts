@@ -72,16 +72,29 @@ export const DespachoVoo: Story = {
   }
 };
 
-export const Gerencial: Story = {
-  name: 'Gerencial',
+export const Admin: Story = {
+  name: 'Admin',
   args: {
     items: [
-      { id: 'gerencial', label: 'Gerencial', icon: 'fa-solid fa-chart-pie', active: true },
-      { id: 'dashboards', label: 'Dashboards', icon: 'fa-solid fa-gauge-high' },
-      { id: 'relatorios', label: 'Relatórios', icon: 'fa-solid fa-file-lines' },
-      { id: 'kpis', label: 'KPIs', icon: 'fa-solid fa-chart-line' },
-    ],
-    rightItem: { id: 'config', label: 'Configurações', icon: 'fa-solid fa-gear' }
+      { id: 'notificacao', label: 'Notificação', icon: 'sg-icon fa-solid fa-bullhorn', active: true },
+      { id: 'acessos', label: 'Acessos', icon: 'sg-icon fa-solid fa-right-to-bracket' },
+      { id: 'usuarios', label: 'Usuários', icon: 'sg-icon fa-solid fa-users' },
+      { id: 'areas', label: 'Áreas', icon: 'sg-icon fa-solid fa-sitemap fa-rotate-270' },
+      { id: 'aeroportos', label: 'Aeroportos', icon: 'sg-icon fa-solid fa-tower-control' },
+      { id: 'aeronaves', label: 'Aeronaves', icon: 'sg-icon fa-kit fa-aircraft' },
+      { id: 'atrasos', label: 'Códigos', labelLine2: 'Atrasos', icon: 'sg-icon fa-solid fa-hourglass-clock' },
+      { id: 'cancelamento', label: 'Código', labelLine2: 'Cancelamento', icon: 'sg-icon fa-solid fa-plane-slash' },
+      { id: 'turnos', label: 'Turnos', icon: 'sg-icon fa-solid fa-clock-five' },
+      { id: 'portoes', label: 'Portões', icon: 'sg-icon fa-kit fa-gate' },
+      { id: 'fuso', label: 'Fuso', labelLine2: 'horário', icon: 'sg-icon fa-kit fa-fuso' },
+      { id: 'bloquear', label: 'Bloquear', labelLine2: 'Voo', icon: 'sg-icon fa-solid fa-plane-lock' },
+      { id: 'park', label: 'P. Position', icon: 'sg-icon fa-kit fa-park-position-siga' },
+      { id: 'config', label: 'Configurações', icon: 'sg-icon fa-solid fa-gear' },
+      { id: 'relatorios', label: 'Relatórios', icon: 'sg-icon fa-solid fa-gauge-high' },
+      { id: 'fornecedores', label: 'Fornecedores', icon: 'sg-icon fa-solid fa-users-rays' },
+      { id: 'sociedade', label: 'Sociedade', icon: 'sg-icon fa-solid fa-handshake' },
+      { id: 'bagbelt', label: 'Bag Belt', icon: 'sg-icon fa-solid fa-conveyor-belt-boxes' },
+    ]
   }
 };
 
